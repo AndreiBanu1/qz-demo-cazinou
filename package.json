@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:full": "([ -f .dev.vars ] || cp .dev.vars.example .dev.vars) && VITE_TURNSTILE_SITE_KEY=${VITE_TURNSTILE_SITE_KEY:-1x00000000000000000000AA} npm run build && wrangler pages dev dist --port 8788",
-    "build": "tsc --noEmit -p tsconfig.app.json && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/verify-site.mjs",
+    "build": "tsc --noEmit -p tsconfig.app.json && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/verify-site.mjs && node scripts/check-copy.mjs",
     "test": "vitest run",
     "e2e": "playwright test",
     "lint": "eslint .",
