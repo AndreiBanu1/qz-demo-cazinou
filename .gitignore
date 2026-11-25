@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+dist-email
+test-results
+playwright-report
+.wrangler
+.dev.vars
+.superpowers/
+lighthouse-tmp/
