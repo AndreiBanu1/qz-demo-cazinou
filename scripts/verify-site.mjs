@@ -41,7 +41,10 @@ else {
   if (!textOf(html).includes("Page not found")) fail("404.html", "no English text");
 }
 
-for (const f of ["_headers", "robots.txt", "favicon.svg"]) if (!existsSync(join(DIST, f))) fail(f, "not built");
+for (const f of ["_headers", "robots.txt", "favicon.svg", "og-image.png"]) if (!existsSync(join(DIST, f))) fail(f, "not built");
+// check-copy reads the email samples; without them it would pass without checking the email (spec §10.2).
+for (const t of ["masa", "eveniment", "intrebare"])
+  for (const ext of ["txt", "html"]) if (!existsSync(join("dist-email", `${t}.${ext}`))) fail(`dist-email/${t}.${ext}`, "not built");
 
 if (!existsSync(join(DIST, "sitemap.xml"))) fail("sitemap.xml", "not built");
 else {

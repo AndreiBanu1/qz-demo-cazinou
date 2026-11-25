@@ -13,3 +13,6 @@ export const render = (url: string): string =>
 export { pages, notFoundPage, canonicalUrl, twinOf } from "./config/pages";
 export { renderHead, alternates } from "./seo/head";
 export { site } from "./config/site";
+
+// For scripts/prerender.mjs: the notification email rendered with sample data, so check-copy reads it too.
+export { renderNotification } from "./lib/email-template";
