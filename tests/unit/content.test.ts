@@ -24,3 +24,37 @@ describe("ui strings", () => {
     );
   });
 });
+
+import { hours, poker, events } from "@/content/program";
+import { pageContent } from "@/content/pages";
+import { home } from "@/content/home";
+import { despreDemo } from "@/content/despre-demo";
+
+describe("page content", () => {
+  it("every page content module has ro and en with the same keys", () => {
+    for (const [key, c] of Object.entries(pageContent)) expect(keyPaths(c.en), key).toEqual(keyPaths(c.ro));
+    expect(keyPaths(home.en)).toEqual(keyPaths(home.ro));
+    expect(keyPaths(despreDemo.en)).toEqual(keyPaths(despreDemo.ro));
+  });
+
+  it("the programme has no dates", () => {
+    const text = JSON.stringify({ poker, events });
+    expect(text).not.toMatch(/\d{4}-\d{2}-\d{2}|\d{1,2}\.\d{1,2}\.\d{2,4}/);
+    expect(text).not.toMatch(/ianuarie|februarie|martie|aprilie|iunie|iulie|august|septembrie|octombrie|noiembrie|decembrie/i);
+  });
+
+  it("the hours and poker programme match the spec", () => {
+    expect(hours.map((h) => [h.id, h.open, h.close])).toEqual([
+      ["jocuri", "14:00", "04:00"],
+      ["restaurant", "18:00", "24:00"],
+      ["bar", "18:00", "02:00"],
+    ]);
+    expect(poker.map((p) => [p.day, p.time, p.game])).toEqual([
+      [2, "20:00", "Texas Hold'em"],
+      [4, "20:00", "Omaha"],
+      [6, "19:00", "Texas Hold'em"],
+      ["daily", "18:00", null],
+    ]);
+    expect(events.map((e) => e.id)).toEqual(["jazz", "degustare", "acustic", "retro"]);
+  });
+});

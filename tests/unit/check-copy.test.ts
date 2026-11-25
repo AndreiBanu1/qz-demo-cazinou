@@ -66,3 +66,14 @@ describe("copyTextOf", () => {
     expect(hits).toEqual(expect.arrayContaining(["jackpot", "free", "winner", "spin"]));
   });
 });
+
+import { bannedDisplay } from "@/content/despre-demo";
+
+describe("the list shown on /despre-demo", () => {
+  it("every word it shows is flagged by the check", () => {
+    for (const w of [...bannedDisplay.ro, ...bannedDisplay.en]) {
+      const word = w.replace(/ \(.*\)$/, "");
+      expect(words(word).length, word).toBeGreaterThan(0);
+    }
+  });
+});
