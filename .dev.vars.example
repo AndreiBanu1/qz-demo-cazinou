@@ -1,0 +1,5 @@
+# Copy to .dev.vars for `npm run dev:full` (the script does it when .dev.vars is missing).
+# Cloudflare's published always-pass Turnstile test secret. Never put a real secret here.
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+# The local outbox instead of the Mailtrap sandbox (spec §7.4).
+MAIL_MODE=outbox

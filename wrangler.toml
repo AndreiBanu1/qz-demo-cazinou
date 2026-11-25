@@ -1,0 +1,10 @@
+name = "ametist-demo"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-30"
+
+# The local stand-in for the Mailtrap sandbox (spec §7.4, MAIL_MODE=outbox). `wrangler pages dev` keeps it in a local
+# namespace under .wrangler/. Production never binds OUTBOX: the deployed function runs with MAIL_MODE=mailtrap, and
+# both /api/cerere and /api/_outbox refuse the outbox on any host other than localhost.
+[[kv_namespaces]]
+binding = "OUTBOX"
+id = "local-outbox-not-deployed"
