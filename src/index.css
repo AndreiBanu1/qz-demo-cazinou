@@ -11,3 +11,14 @@
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
 }
+
+/* The age gate (spec §3.3): shown only with JavaScript on and no "yes" in this tab yet. */
+[data-age-gate] {
+  display: none;
+}
+html.js:not(.age-ok) [data-age-gate] {
+  display: flex;
+}
+html.js:not(.age-ok) body:has([data-age-gate]) {
+  overflow: hidden;
+}

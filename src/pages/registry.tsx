@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import type { PageKey } from "@/config/pages";
 import { usePage } from "@/hooks/use-lang";
+import Acces from "./Acces";
 
 // Placeholder until Task 5 adds the real page components.
 const Placeholder = () => {
@@ -19,7 +20,7 @@ export const pageComponents: Record<PageKey, ComponentType> = {
   "joc-responsabil": Placeholder,
   "despre-demo": Placeholder,
   confidentialitate: Placeholder,
-  acces: Placeholder,
+  acces: Acces,
 };
 
 export const NotFound = () => <h1 tabIndex={-1}>Pagina nu există / Page not found</h1>;

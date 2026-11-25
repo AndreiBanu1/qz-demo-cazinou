@@ -1,12 +1,14 @@
 import type { ReactNode } from "react";
 import { ui } from "@/content/ui";
-import { useLang } from "@/hooks/use-lang";
+import { usePage } from "@/hooks/use-lang";
+import AgeGate from "./AgeGate";
 import DemoBanner from "./DemoBanner";
 import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const lang = useLang();
+  const page = usePage();
+  const lang = page.lang;
   return (
     <>
       <a
@@ -15,6 +17,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       >
         {ui[lang].skip}
       </a>
+      {page.gated && <AgeGate />}
       <DemoBanner />
       <Header />
       <main id="continut">{children}</main>
