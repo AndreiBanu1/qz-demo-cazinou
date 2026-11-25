@@ -148,3 +148,37 @@ export function checkImages(html) {
   }
   return out;
 }
+
+const NOSCRIPT = { ro: "Formularul are nevoie de JavaScript", en: "The form needs JavaScript" };
+
+/**
+ * The request form as served before JavaScript runs (spec §7.2): a tap before hydration must do nothing, and every
+ * field the Pages Function reads must be in the form.
+ * @param {string} html
+ * @param {readonly string[]} fields field names that must be in the server-rendered form
+ * @param {"ro" | "en"} lang
+ * @returns {string[]} failure messages
+ */
+export function checkRequestForm(html, fields, lang) {
+  /** @type {string[]} */
+  const out = [];
+  const form = html.match(/<form[\s>][\s\S]*?<\/form>/i)?.[0];
+  if (!form) return ["no <form> found"];
+
+  const openTag = form.match(/^<form[^>]*>/i)?.[0] ?? "";
+  if (hasAttr(openTag, "action")) out.push("the <form> has an action attribute, so a tap before hydration would submit it");
+
+  const submits = [
+    ...[...form.matchAll(/<button\b[^>]*>/gi)].map((m) => m[0]).filter((t) => !/\stype="/i.test(t) || /\stype="submit"/i.test(t)),
+    ...[...form.matchAll(/<input\b[^>]*\stype="submit"[^>]*>/gi)].map((m) => m[0]),
+  ];
+  if (submits.length === 0) out.push("the form has no submit button");
+  else if (!submits.every((t) => hasAttr(t, "disabled"))) out.push("the submit button is not rendered disabled");
+
+  const noscripts = [...html.matchAll(/<noscript[\s>][\s\S]*?<\/noscript>/gi)].map((m) => textOf(m[0]));
+  if (!noscripts.some((t) => t.includes(NOSCRIPT[lang]))) out.push(`no <noscript> saying "${NOSCRIPT[lang]}"`);
+
+  const names = new Set([...form.matchAll(/<(?:input|select|textarea)\b[^>]*\sname="([^"]*)"/gi)].map((m) => m[1]));
+  for (const f of fields) if (!names.has(f)) out.push(`the form has no field named "${f}"`);
+  return out;
+}

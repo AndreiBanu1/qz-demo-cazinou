@@ -33,7 +33,8 @@ const AppRoutes = () => {
       <Routes>
         {pages.map((p) => {
           const Page = pageComponents[p.key as keyof typeof pageComponents];
-          return <Route key={p.path} path={p.path} element={<Page />} />;
+          // The key remounts the page on a language switch, so per-page state (the form, Turnstile) starts fresh.
+          return <Route key={p.path} path={p.path} element={<Page key={p.path} />} />;
         })}
         <Route path="*" element={<NotFound />} />
       </Routes>

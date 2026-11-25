@@ -1,5 +1,6 @@
 import CallNote from "@/components/CallNote";
 import HoursList from "@/components/HoursList";
+import RequestForm from "@/components/RequestForm";
 import { contact } from "@/content/contact";
 import { useLang } from "@/hooks/use-lang";
 
@@ -22,7 +23,7 @@ const Contact = () => {
         <h2 id="formular" className="font-display text-3xl text-gold-300">
           {c.formHeading}
         </h2>
-        {/* The form arrives in Task 7. */}
+        <RequestForm />
       </section>
       <section aria-labelledby="suna" className="mt-12">
         <h2 id="suna" className="font-display text-2xl text-gold-300">

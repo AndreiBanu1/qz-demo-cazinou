@@ -3,11 +3,17 @@
 // The routes are written out in scripts/lib/routes.mjs on purpose, so this check doesn't trust the code it checks.
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { ORIGIN, checkImages, checkPage, checkSite } from "./lib/checks.mjs";
+import { ORIGIN, checkImages, checkPage, checkRequestForm, checkSite } from "./lib/checks.mjs";
 import { textOf } from "./lib/html.mjs";
 import { ROUTES as routes } from "./lib/routes.mjs";
 
 const DIST = "dist";
+// The fields the function reads that the server-rendered form must have (written out to match FORM_FIELDS in
+// src/lib/request-schema.ts): marime appears only for a private event, and Turnstile adds cf-turnstile-response itself.
+const FORM_FIELDS = ["tip", "data", "ora", "persoane", "mesaj", "nume", "contact", "varsta", "acord", "limba", "bot-field"];
+const CONTACT_PAGES = ["/contact", "/en/contact"];
+// The Turnstile script loads only on the contact pages, after hydration, so no built page may reference it.
+const TURNSTILE_HOST = "challenges.cloudflare.com";
 const FAVICON_LINK = '<link rel="icon" href="/favicon.svg" type="image/svg+xml" />';
 
 const failures = [];
@@ -25,6 +31,9 @@ for (const r of routes) {
   for (const m of checkPage(html, r)) fail(r.file, m);
   for (const m of checkImages(html)) fail(r.file, m);
   if (!html.includes(FAVICON_LINK)) fail(r.file, "no favicon link");
+  if (CONTACT_PAGES.includes(r.path)) for (const m of checkRequestForm(html, FORM_FIELDS, r.lang)) fail(r.file, m);
+  else if (/<form[\s>]/i.test(html)) fail(r.file, "has a <form>; the only form belongs on the contact pages");
+  if (html.includes(TURNSTILE_HOST)) fail(r.file, `references ${TURNSTILE_HOST}; the script loads only after hydration`);
   if (r.minWords !== undefined) {
     const main = html.match(/<main[\s>][\s\S]*?<\/main>/i)?.[0] ?? "";
     const words = textOf(main).split(" ").filter(Boolean).length;
