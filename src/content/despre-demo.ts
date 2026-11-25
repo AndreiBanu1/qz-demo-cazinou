@@ -72,7 +72,7 @@ export const despreDemo: Bilingual<AboutContent> = {
           source: "OUG 77/2009, art. 7; Norme, art. 150 alin. (1) lit. r)",
           url: OUG,
           says: "Participanții sunt adulți, iar minorii nu au acces în locații.",
-          does: `Insigna 18+, întrebarea despre vârstă la prima vizită și regula actului de identitate. Vârsta minimă (${site.minAge}) este scrisă într-un singur loc în cod.`,
+          does: `Insigna ${site.minAge}+, întrebarea despre vârstă la prima vizită și regula actului de identitate. Vârsta minimă (${site.minAge}) este scrisă într-un singur loc în cod.`,
         },
         {
           source: "Norme, art. 128 (jocuri la distanță)",
@@ -100,7 +100,7 @@ export const despreDemo: Bilingual<AboutContent> = {
       heading: "Ce se verifică automat, la fiecare build",
       paragraphs: ["Build-ul se oprește dacă una dintre pagini, în oricare limbă:"],
       list: [
-        "nu are bannerul de demo, insigna 18+, rândul despre minori, chenarul pentru licență sau legătura către ONJN",
+        `nu are bannerul de demo, insigna ${site.minAge}+, rândul despre minori, chenarul pentru licență sau legătura către ONJN`,
         "nu are perechea ei în cealaltă limbă, cu hreflang corect",
         "arată întrebarea despre vârstă unde nu trebuie, sau nu o arată unde trebuie",
         "conține un număr de telefon, o adresă de stradă, un link tel: sau o imagine cu sigla ONJN",
@@ -171,7 +171,7 @@ export const despreDemo: Bilingual<AboutContent> = {
           source: "OUG 77/2009, art. 7; Norme, art. 150(1)(r)",
           url: OUG,
           says: "Participants are adults, and minors may not enter the venues.",
-          does: `The 18+ badge, the age question on a first visit, and the ID rule. The minimum age (${site.minAge}) is written in one place in the code.`,
+          does: `The ${site.minAge}+ badge, the age question on a first visit, and the ID rule. The minimum age (${site.minAge}) is written in one place in the code.`,
         },
         {
           source: "Norme, art. 128 (remote gambling)",
@@ -199,7 +199,7 @@ export const despreDemo: Bilingual<AboutContent> = {
       heading: "What is checked automatically, on every build",
       paragraphs: ["The build stops if any page, in either language:"],
       list: [
-        "lacks the demo banner, the 18+ badge, the minors line, the licence box or the ONJN link",
+        `lacks the demo banner, the ${site.minAge}+ badge, the minors line, the licence box or the ONJN link`,
         "lacks its twin in the other language, with the right hreflang",
         "shows the age question where it shouldn't, or doesn't show it where it should",
         "contains a phone number, a street address, a tel: link or an image of the ONJN logo",

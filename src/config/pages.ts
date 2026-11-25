@@ -120,14 +120,14 @@ const table: Record<PageKey, Record<Lang, Entry>> = {
       path: "/locatia",
       title: "Restaurantul, barul și regulile casei | Salon Ametist (demo)",
       description:
-        "Locația Salon Ametist: restaurantul, barul și scena, ținuta potrivită, accesul cu act de identitate și regula de 18 ani împliniți.",
+        `Locația Salon Ametist: restaurantul, barul și scena, ținuta potrivită, accesul cu act de identitate și regula de ${site.minAge} ani împliniți.`,
       breadcrumb: "Locația",
     },
     en: {
       path: "/en/venue",
       title: "The restaurant, the bar and house rules | Salon Ametist (demo)",
       description:
-        "The Salon Ametist venue: the restaurant, the bar and the stage, the dress code, entry with an ID check and the over-18 rule.",
+        `The Salon Ametist venue: the restaurant, the bar and the stage, the dress code, entry with an ID check and the over-${site.minAge} rule.`,
       breadcrumb: "Venue",
     },
   },

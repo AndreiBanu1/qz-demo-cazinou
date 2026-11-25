@@ -85,12 +85,12 @@ const DespreDemo = () => {
               <table className="w-full max-w-3xl border-collapse text-left">
                 <tbody>
                   {latestResults.rows.map((r) => (
-                    <tr key={r.tool + r.what} className="border-b border-violet-700 align-top">
+                    <tr key={r.tool + r.what.en} className="border-b border-violet-700 align-top">
                       <th scope="row" className="py-2 pr-4 font-normal text-gold-300">
                         {r.tool}
                       </th>
-                      <td className="py-2 pr-4">{r.what}</td>
-                      <td className="py-2">{r.result}</td>
+                      <td className="py-2 pr-4">{r.what[lang]}</td>
+                      <td className="py-2">{r.result[lang]}</td>
                     </tr>
                   ))}
                 </tbody>

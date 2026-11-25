@@ -36,3 +36,13 @@ describe("the age gate markup", () => {
     expect(render("/en/poker")).toContain('href="/en/restricted"');
   });
 });
+
+describe("the language switch", () => {
+  it("is not shown on the bilingual 404 page, which has no twin", () => {
+    expect(render("/does-not-exist")).not.toContain("data-lang-switch");
+  });
+
+  it("links every page to its twin", () => {
+    expect(render("/poker")).toMatch(/<a[^>]*href="\/en\/poker"[^>]*data-lang-switch|<a[^>]*data-lang-switch[^>]*href="\/en\/poker"/);
+  });
+});

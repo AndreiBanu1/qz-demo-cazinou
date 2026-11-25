@@ -3,6 +3,7 @@
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import { MIN_AGE } from "../src/config/age.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const W = 1200;
@@ -18,7 +19,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   </g>
   <text x="80" y="250" font-family="${serif}" font-size="110" fill="#FAC775">Salon Ametist</text>
   <text x="80" y="330" font-family="${sans}" font-size="36" fill="#EEEDFE">Restaurant, bar, muzică live și săli de joc</text>
-  <text x="80" y="380" font-family="${sans}" font-size="36" fill="#CECBF6">Doar pentru adulți · 18+</text>
+  <text x="80" y="380" font-family="${sans}" font-size="36" fill="#CECBF6">Doar pentru adulți · ${MIN_AGE}+</text>
   <rect x="80" y="470" width="720" height="76" rx="14" fill="#FAEEDA" />
   <text x="112" y="519" font-family="${sans}" font-size="32" font-weight="700" fill="#412402">Site demonstrativ · local inventat</text>
 </svg>`;

@@ -1,12 +1,14 @@
+// @ts-expect-error plain JS module without types (shared with scripts/build-og-image.mjs)
+import { MIN_AGE } from "./age.js";
+
 export type Lang = "ro" | "en";
 
-// The one place the minimum age is written (spec §3.3). If the Chamber of Deputies passes the Turcan bill (age 21),
-// change it here; every page, the gate and the form read it.
+// minAge comes from ./age.js, the one place it is written (spec §3.3); every page, the gate, the badge and the form read it.
 export const site = {
   name: "Ametist",
   fullName: "Salon Ametist",
   url: "https://ametist-demo.pages.dev",
-  minAge: 18,
+  minAge: MIN_AGE as number,
   bannerText: {
     ro: "Site demonstrativ realizat de Quality Zone. Ametist este un local inventat și nu oferă jocuri de noroc, nici online, nici fizic.",
     en: "Demo site built by Quality Zone. Ametist is an invented venue and offers no gambling, online or in person.",

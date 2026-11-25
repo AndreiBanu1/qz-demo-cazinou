@@ -17,7 +17,7 @@ const ro = {
     locatia: "Locația",
     contact: "Contact",
   },
-  badge: { text: "18+", label: `Doar pentru persoane de cel puțin ${site.minAge} ani` },
+  badge: { text: `${site.minAge}+`, label: `Doar pentru persoane de cel puțin ${site.minAge} ani` },
   langSwitch: { label: "English", title: "Read this page in English" },
   footer: {
     hoursTitle: "Program",
@@ -63,7 +63,7 @@ const en = {
     locatia: "Venue",
     contact: "Contact",
   },
-  badge: { text: "18+", label: `Only for people aged ${site.minAge} or over` },
+  badge: { text: `${site.minAge}+`, label: `Only for people aged ${site.minAge} or over` },
   langSwitch: { label: "Română", title: "Citește pagina în limba română" },
   footer: {
     hoursTitle: "Opening hours",

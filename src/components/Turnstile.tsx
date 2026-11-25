@@ -52,7 +52,7 @@ function loadTurnstile(): Promise<TurnstileApi> {
 interface Props {
   onToken: (token: string) => void;
   onExpire: () => void;
-  /** The script could not be loaded (blocked or offline): no token will ever come. */
+  /** The script could not be loaded (blocked or offline), or the widget reported an error: no token is coming. */
   onLoadError?: () => void;
   /** Changing this resets the widget, for a fresh token after every failed send. */
   resetKey: number;
@@ -79,7 +79,12 @@ const Turnstile = ({ onToken, onExpire, onLoadError, resetKey, language }: Props
             callback: (token) => callbacks.current.onToken(token),
             // A token lasts a few minutes; on a slow phone it can expire before „Trimite”. Turnstile then fetches a new one.
             "expired-callback": () => callbacks.current.onExpire(),
-            "error-callback": () => callbacks.current.onExpire(),
+            // An error (for example a site key used on the wrong domain) means no token is coming: say so,
+            // rather than leaving the visitor on "waiting for the robot check".
+            "error-callback": () => {
+              callbacks.current.onExpire();
+              callbacks.current.onLoadError?.();
+            },
             "refresh-expired": "auto",
             // Usually invisible: the widget only shows itself when it needs the visitor to interact.
             appearance: "interaction-only",

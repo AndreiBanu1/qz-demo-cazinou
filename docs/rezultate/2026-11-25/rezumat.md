@@ -21,8 +21,8 @@ SEO: the only failing audit on every page is `is-crawlable` („Page is blocked 
 
 | Suite | Result |
 |---|---|
-| Vitest (unit, checks, schema, email, sender, submission) | 96 passed |
-| Playwright + axe (`npx playwright test`, 375 × 812 and 1280 × 800) | 30 passed, 1 skipped (the phone-menu test on the desktop viewport) |
+| Vitest (unit, checks, schema, email, sender, submission) | 96 passed (2026-11-25); 111 passed after the review fixes (2026-11-26) |
+| Playwright + axe (`npx playwright test`, 375 × 812 and 1280 × 800) | 30 passed, 1 skipped (2026-11-25); 31 passed, 1 skipped after the review fixes (2026-11-26). The skip is the phone-menu test on the desktop viewport |
 | axe on every route, both languages, gate open and closed | 0 violations of any impact |
 | `verify-site` | ok: 22 pages, 404, sitemap |
 | `check-copy` | ok: 23 pages and 6 email samples, no banned words |

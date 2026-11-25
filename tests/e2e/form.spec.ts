@@ -140,16 +140,27 @@ test("double submit sends one email", async ({ page }) => {
   await open(page, "/contact");
   await fillMasa(page, "test@example.com");
   await waitForToken(page);
-  // Hold the request so the second click lands while the first is in flight.
-  let release!: () => void;
-  const held = new Promise<void>((r) => (release = r));
-  await page.route("**/api/cerere", async (route) => {
-    await held;
-    await route.continue();
+  // Two clicks in the same task, before React re-renders the button as disabled: only the sending guard stops the second.
+  let posts = 0;
+  page.on("request", (r) => r.method() === "POST" && new URL(r.url()).pathname === "/api/cerere" && posts++);
+  await page.evaluate(() => {
+    const b = document.querySelector<HTMLButtonElement>('form button[type="submit"]')!;
+    b.click();
+    b.click();
   });
-  await submit(page).click();
-  await submit(page).click({ force: true });
-  release();
   await expect(page.getByRole("status")).toContainText(formular.ro.success);
+  expect(posts).toBe(1);
   expect(await outbox(page)).toHaveLength(1);
+});
+
+test("a Turnstile error shows its message instead of waiting forever", async ({ page }) => {
+  // A stub widget that fails at once, like a real site key used on the wrong domain.
+  await page.route("https://challenges.cloudflare.com/turnstile/v0/api.js*", (r) =>
+    r.fulfill({
+      contentType: "text/javascript",
+      body: `window.turnstile = { render(el, o) { setTimeout(() => o["error-callback"](), 0); return "w"; }, reset() {}, remove() {} };`,
+    }),
+  );
+  await open(page, "/contact");
+  await expect(page.getByRole("alert")).toHaveText(formular.ro.turnstileError);
 });

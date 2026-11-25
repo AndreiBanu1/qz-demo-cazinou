@@ -6,6 +6,8 @@ import { usePage } from "@/hooks/use-lang";
 // Always to the same page in the other language, never to the other home page (spec §4).
 const LanguageSwitch = () => {
   const page = usePage();
+  // The 404 page is already in both languages and has no twin.
+  if (page.key === "404") return null;
   const twin = twinOf(page);
   const s = ui[page.lang].langSwitch;
   return (

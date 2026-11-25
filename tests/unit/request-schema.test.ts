@@ -83,3 +83,17 @@ describe("the request schema", () => {
     for (const d of ["2026-13-01", "2026-02-30", "28.11.2026", ""]) expect(dateInRange(d, NOW), d).toBe(false);
   });
 });
+
+import { afterEach, vi } from "vitest";
+
+describe("Bucharest dates don't depend on how a locale formats dates", () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  it("bucharestToday still gives YYYY-MM-DD when format() output changes", () => {
+    // en-CA's format() changed once in a browser release (CLDR 42); the parts are stable.
+    // `format` is a getter on the prototype that returns a bound function.
+    vi.spyOn(Intl.DateTimeFormat.prototype, "format", "get").mockReturnValue(() => "11/25/2026, 12:00");
+    expect(bucharestToday(new Date("2026-11-25T10:00:00Z"))).toBe("2026-11-25");
+    expect(dateInRange("2026-11-28", new Date("2026-11-25T10:00:00Z"))).toBe(true);
+  });
+});

@@ -76,6 +76,7 @@ const RequestForm = () => {
   const onToken = useCallback((t: string) => {
     setToken(t);
     setWaiting(false);
+    setTurnstileFailed(false);
   }, []);
   const onExpire = useCallback(() => setToken(""), []);
   const onLoadError = useCallback(() => setTurnstileFailed(true), []);

@@ -1,15 +1,32 @@
 // Day arithmetic in Europe/Bucharest time (spec §7.1): "tomorrow" is the next day for the venue, wherever the server or
 // the visitor's clock is. Relative imports only in src/lib: the Pages Function bundler doesn't know the "@" alias.
-const BUCHAREST = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bucharest", year: "numeric", month: "2-digit", day: "2-digit" });
-const BUCHAREST_TIME = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Bucharest", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+// Built from formatToParts, not format(): a locale's formatted string can change between browser releases (en-CA's
+// did, with CLDR 42), while the parts stay the same.
+const BUCHAREST = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/Bucharest",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+const partsOf = (now: Date) =>
+  Object.fromEntries(BUCHAREST.formatToParts(now).map((p) => [p.type, p.value])) as Record<Intl.DateTimeFormatPartTypes, string>;
 
 export const MAX_DAYS_AHEAD = 90;
 
 /** Today's date in Bucharest, as YYYY-MM-DD. */
-export const bucharestToday = (now: Date): string => BUCHAREST.format(now);
+export const bucharestToday = (now: Date): string => {
+  const p = partsOf(now);
+  return `${p.year}-${p.month}-${p.day}`;
+};
 
 /** "YYYY-MM-DD HH:MM" in Bucharest time. */
-export const bucharestDateTime = (now: Date): string => `${BUCHAREST.format(now)} ${BUCHAREST_TIME.format(now)}`;
+export const bucharestDateTime = (now: Date): string => {
+  const p = partsOf(now);
+  return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}`;
+};
 
 const parse = (ymd: string): number | null => {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(ymd);

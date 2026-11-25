@@ -39,7 +39,7 @@ Spec and plan live in the quality-zone repo:
 ## Mail modes (`MAIL_MODE`)
 
 - `outbox`: the local default (`.dev.vars.example`). The email goes into the local `OUTBOX` KV namespace. `GET /api/outbox` lists it and `DELETE` clears it, but both answer only on localhost.
-- `mailtrap`: production. It needs the secrets `MAILTRAP_TOKEN` and `MAILTRAP_SANDBOX_ID`. The sender only ever calls `https://sandbox.api.mailtrap.io/api/send/<id>`.
+- `mailtrap`: production and preview, set in `wrangler.toml` (`[env.production]`, `[env.preview]`). Neither binds `OUTBOX`. It needs the secrets `MAILTRAP_TOKEN` and `MAILTRAP_SANDBOX_ID`. The sender only ever calls `https://sandbox.api.mailtrap.io/api/send/<id>`.
 - Anything else, or a missing secret: the form answers `config` ("not connected to its test inbox yet").
 
 The free Mailtrap sandbox accepts 1 email per 10 seconds and 50 a month, and keeps the last 10. That is why there is one email per request and no confirmation to the visitor (spec §7.4).
