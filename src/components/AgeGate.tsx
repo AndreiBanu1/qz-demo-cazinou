@@ -74,6 +74,7 @@ const AgeGate = () => {
         <p id={textId} className="mt-2 text-sm text-lavender-200">
           {s.text}
         </p>
+        <p className="mt-2 text-xs text-lavender-200">{s.demo}</p>
         <div className="mt-5 flex justify-center gap-3">
           <button
             ref={yes}

@@ -13,6 +13,7 @@ export const site = {
   } satisfies Record<Lang, string>,
   onjnUrl: "https://onjn.gov.ro/",
   qzUrl: "https://qualityzone.netlify.app",
-  // From the build variable; the dev and test builds use Cloudflare's always-pass test key.
-  turnstileSiteKey: import.meta.env.VITE_TURNSTILE_SITE_KEY ?? "1x00000000000000000000AA",
+  // From the build variable; the dev and test builds use Cloudflare's always-pass test key. `?.` because
+  // Playwright imports this file outside Vite, where import.meta.env is undefined.
+  turnstileSiteKey: (import.meta.env?.VITE_TURNSTILE_SITE_KEY as string | undefined) || "1x00000000000000000000AA",
 } as const;

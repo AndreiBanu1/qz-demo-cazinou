@@ -32,7 +32,7 @@ const makeResolver =
   };
 
 const input =
-  "mt-1 block w-full rounded-md border border-lavender-200 bg-violet-950 px-3 py-2 text-lavender placeholder:text-lavender-200 focus:border-gold-300 focus:outline-none focus:ring-2 focus:ring-gold-300 aria-[invalid=true]:border-red-300";
+  "mt-1 block w-full [color-scheme:dark] rounded-md border border-lavender-200 bg-violet-950 px-3 py-2 text-lavender placeholder:text-lavender-200 focus:border-gold-300 focus:outline-none focus:ring-2 focus:ring-gold-300 aria-[invalid=true]:border-red-300";
 const label = "block text-base text-lavender";
 const hint = "mt-1 text-sm text-lavender-200";
 const errorText = "mt-1 text-sm text-gold-300";

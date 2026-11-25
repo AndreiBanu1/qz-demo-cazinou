@@ -28,7 +28,7 @@ export const home: Bilingual<HomeContent> = {
       { key: "mese", title: "Jocurile la masă", text: "Ruletă, blackjack și baccara, în sala mare, cu dealeri.", illustration: "wheel" },
       { key: "sloturi", title: "Sala de sloturi", text: "O sală liniștită la etaj, cu colțuri retrase și pauze la bar.", illustration: "slots" },
     ],
-    hoursHeading: "Programul",
+    hoursHeading: "Când suntem deschiși",
     adultsHeading: "Doar pentru adulți",
     adults:
       "Accesul este permis doar persoanelor care au împlinit vârsta minimă legală, cu act de identitate la fiecare vizită. Jocurile de noroc pot crea dependență: stabilește-ți limitele dinainte și joacă doar cât îți face plăcere.",
@@ -47,7 +47,7 @@ export const home: Bilingual<HomeContent> = {
       { key: "mese", title: "The table games", text: "Roulette, blackjack and baccarat in the main hall, with dealers.", illustration: "wheel" },
       { key: "sloturi", title: "The slot room", text: "A quiet room upstairs, with tucked-away corners and breaks at the bar.", illustration: "slots" },
     ],
-    hoursHeading: "Opening hours",
+    hoursHeading: "When we're open",
     adultsHeading: "Adults only",
     adults:
       "Entry is only for people over the legal minimum age, with an ID on every visit. Gambling can be addictive: set your limits in advance and play only for as long as you enjoy it.",
