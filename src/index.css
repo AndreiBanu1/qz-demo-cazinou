@@ -1,5 +1,5 @@
-@import "@fontsource-variable/bodoni-moda/opsz.css";
-@import "@fontsource-variable/jost/index.css";
+@import "@fontsource-variable/fraunces/opsz.css";
+@import "@fontsource-variable/figtree/index.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,16 +9,14 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    /* Jost reads thin at its regular weight on a light background; 450 keeps it light in style but solid. */
-    @apply bg-quartz font-sans text-[1.125rem] font-[450] leading-[1.65] text-ink antialiased;
+    /* Figtree at 500: solid, even strokes that stay readable on the light background. */
+    @apply bg-quartz font-sans text-[1.125rem] font-medium leading-[1.65] text-ink antialiased;
   }
+  /* Fraunces with its optical size held low: at large sizes the automatic setting would thin the strokes into
+     hairlines, which is what made the first display face hard to read. */
   .font-display {
-    font-optical-sizing: auto;
-    font-weight: 500;
-  }
-  /* On the light reading background Bodoni's hairlines need more weight than on night, where gilt glows. */
-  .bg-quartz .font-display,
-  main > :not(.bg-night):not(.bg-amethyst) .font-display {
+    font-optical-sizing: none;
+    font-variation-settings: "opsz" 24;
     font-weight: 600;
   }
   :focus-visible {

@@ -34,7 +34,7 @@ The user found the first version too plain and asked for a design inspired by le
 
 **Type:**
 
-- **Bodoni Moda** (variable, with optical sizes) for display: high-contrast Didone, the type of the European salon era and of grand programmes and menus. It is set large, with light tracking on the wordmark and tight leading on headlines.
+- *(Replaced on 2026-11-26 by Fraunces and Figtree; see the revisions at the end.)* **Bodoni Moda** (variable, with optical sizes) for display: high-contrast Didone, the type of the European salon era and of grand programmes and menus. It is set large, with light tracking on the wordmark and tight leading on headlines.
 - **Jost** (variable), a geometric sans in the Futura tradition, for body and interface text: the 1920s pairing with Bodoni, and clearly distinct from it.
 - Scale: 16/18 px body, 1.6–1.7 leading, rising by 1.333 to 76 px for the hero. Measure under 70 characters.
 
@@ -92,3 +92,13 @@ The user found the text in the room rows hard to see on the quartz background. I
 - **Body text:** Jost at weight 450.
 - **Bodoni on quartz:** weight 600; on night it stays at 500, where the gilt reads well.
 - **Room descriptions and the timeline:** now in the main ink colour, not the secondary one.
+
+## Revision, 2026-11-26: a new pair of typefaces
+
+The user still found the text hard to see and asked for the fonts to change completely. Bodoni Moda's hairlines are its whole character, and Jost is a light geometric face, so no weight setting could make the pair solid on a light background.
+
+**Changed:**
+- **Display: Fraunces** (variable). A sturdy "old-style soft" serif with thick, even strokes, still warm and premium. Its optical size is held at 24 (`font-optical-sizing: none`), because the automatic setting would thin large headings into hairlines again. Weight 600.
+- **Body: Figtree** (variable). A clean sans with solid, even strokes, made for screens. Weight 500.
+
+The palette, layout and geode are unchanged. The tests, axe and Lighthouse were rerun (`docs/rezultate/2026-11-26/`).

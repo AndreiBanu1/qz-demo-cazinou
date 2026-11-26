@@ -1,4 +1,4 @@
-# Results, 2026-11-26 (local, after the redesign, before deploy)
+# Results, 2026-11-26 (local, after the redesign and the font change, before deploy)
 
 Where: `npm run dev:full` on this Mac (`wrangler pages dev` on http://localhost:8788, Turnstile test keys, `MAIL_MODE=outbox`). **Not the live site.** This run replaces `../2026-11-25/` after the redesign (`docs/design.md`).
 
@@ -6,17 +6,18 @@ Where: `npm run dev:full` on this Mac (`wrangler pages dev` on http://localhost:
 
 | Page | Device | Performance | Accessibility | Best practices | SEO | LCP | CLS |
 |---|---|---|---|---|---|---|---|
-| `/` | mobile | 100 | 100 | 100 | 66 | 761 ms | 0.028 |
-| `/` | desktop | 100 | 100 | 100 | 66 | 211 ms | 0.005 |
-| `/poker` | mobile | 100 | 100 | 100 | 66 | 787 ms | 0.031 |
-| `/poker` | desktop | 100 | 100 | 100 | 66 | 212 ms | 0.009 |
-| `/en/venue` | mobile | 100 | 100 | 100 | 66 | 765 ms | 0.013 |
-| `/en/venue` | desktop | 100 | 100 | 100 | 66 | 215 ms | 0.007 |
-| `/contact` | mobile | 100 | 100 | 100 | 66 | 769 ms | 0.031 |
-| `/contact` | desktop | 100 | 100 | 100 | 66 | 221 ms | 0.017 |
+| `/` | mobile | 100 | 100 | 100 | 66 | 759 ms | 0.008 |
+| `/` | desktop | 100 | 100 | 100 | 66 | 216 ms | 0.002 |
+| `/poker` | mobile | 100 | 100 | 100 | 66 | 764 ms | 0.005 |
+| `/poker` | desktop | 100 | 100 | 100 | 66 | 209 ms | 0.003 |
+| `/en/venue` | mobile | 100 | 100 | 100 | 66 | 767 ms | 0.009 |
+| `/en/venue` | desktop | 100 | 100 | 100 | 66 | 208 ms | 0.001 |
+| `/contact` | mobile | 100 | 100 | 100 | 66 | 758 ms | 0.005 |
+| `/contact` | desktop | 100 | 100 | 100 | 66 | 209 ms | 0.034 |
 
 - **SEO:** the only failing audit is `is-crawlable` (deliberate `noindex`).
-- **CLS:** the small shift comes from the two web fonts swapping in (`font-display: swap`), and it stays well under the 0.1 threshold.
+- **CLS:** the small shift comes from the two web fonts (Fraunces and Figtree) swapping in (`font-display: swap`), and it stays well under the 0.1 threshold.
+- **When:** the runs above are from after the font change (Bodoni Moda and Jost → Fraunces and Figtree). The JSON files were overwritten by them.
 - **Raw reports:** `lighthouse/*.json`. Local numbers flatter performance; the live run is the one to quote.
 
 ## Tests
