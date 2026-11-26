@@ -1,0 +1,19 @@
+name = "ametist-demo"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-30"
+
+# Top level: local development only (`wrangler pages dev`). OUTBOX is the local stand-in for the Mailtrap sandbox
+# (spec §7.4, MAIL_MODE=outbox from .dev.vars); wrangler keeps it in a local namespace under .wrangler/.
+[[kv_namespaces]]
+binding = "OUTBOX"
+id = "local-outbox-not-deployed"
+
+# Deploys (production and preview) read these instead. kv_namespaces and vars are not inherited from the top level,
+# so no deployed environment binds OUTBOX, and both send through the Mailtrap sandbox. The secrets MAILTRAP_TOKEN,
+# MAILTRAP_SANDBOX_ID and TURNSTILE_SECRET are set with `wrangler pages secret put`. /api/outbox and the outbox sender
+# also refuse any host other than localhost, as a second guard.
+[env.production]
+vars = { MAIL_MODE = "mailtrap" }
+
+[env.preview]
+vars = { MAIL_MODE = "mailtrap" }

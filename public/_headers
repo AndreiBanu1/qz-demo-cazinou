@@ -1,0 +1,7 @@
+# Every page is noindex. Keep robots.txt allowing crawling: a crawler that
+# can't fetch a page never sees its noindex.
+# This file doesn't apply to Functions responses; the function sets these headers in code.
+/*
+  X-Robots-Tag: noindex
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

@@ -1,0 +1,50 @@
+# Tests on every push and pull request (spec §12): lint, unit tests, the build with its checks, and Playwright with
+# axe against the built site served by wrangler, with Turnstile's test keys and the local outbox instead of Mailtrap.
+# On main, the Playwright HTML report is published to GitHub Pages. Deploys stay manual (npm run deploy), so no
+# Cloudflare token lives in GitHub.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint
+      - run: npm test
+      - name: Playwright (builds the site and serves it with wrangler pages dev)
+        run: npx playwright test
+        env:
+          CI: "true"
+          VITE_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+      - uses: actions/upload-pages-artifact@v3
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+        with:
+          path: playwright-report
+
+  report:
+    needs: test
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
