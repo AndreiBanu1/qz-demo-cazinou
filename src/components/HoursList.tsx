@@ -4,12 +4,13 @@ import { useLang } from "@/hooks/use-lang";
 const HoursList = () => {
   const lang = useLang();
   return (
-    <dl className="mt-4 grid gap-3 sm:grid-cols-3">
+    <dl className="mt-6 grid gap-4 sm:grid-cols-3">
       {hours.map((h) => (
-        <div key={h.id} className="rounded-lg bg-violet-900 p-4">
-          <dt className="text-sm text-lavender-200">{h.area[lang]}</dt>
-          <dd className="mt-1 text-lg text-lavender">
-            {daily[lang]} {h.open}–{h.close}
+        <div key={h.id} className="rounded-3xl bg-quartz-deep p-6">
+          <dt className="text-base text-ink-soft">{h.area[lang]}</dt>
+          <dd className="mt-2 font-display text-h3 text-ink">
+            {h.open}–{h.close}
+            <span className="mt-1 block font-sans text-base text-ink-soft">{daily[lang]}</span>
           </dd>
         </div>
       ))}

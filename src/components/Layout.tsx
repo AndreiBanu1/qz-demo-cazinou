@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <>
       <a
         href="#continut"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-gold-300 focus:px-3 focus:py-2 focus:text-gold-900"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-gilt focus:px-3 focus:py-2 focus:text-night"
       >
         {ui[lang].skip}
       </a>

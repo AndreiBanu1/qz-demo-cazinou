@@ -7,14 +7,14 @@ const ProgrammeTable = () => {
   const s = pokerPage[lang].programme;
   return (
     <section aria-labelledby="program" className="mt-10">
-      <h2 id="program" className="font-display text-3xl text-gold-300">
+      <h2 id="program" className="font-display text-h2 text-amethyst">
         {s.heading}
       </h2>
-      <p className="mt-3 max-w-prose text-lg leading-relaxed">{s.intro}</p>
+      <p className="mt-4 max-w-[65ch]">{s.intro}</p>
       <div className="mt-4 overflow-x-auto">
         <table className="w-full max-w-2xl border-collapse text-left">
           <thead>
-            <tr className="border-b border-gold-300 text-gold-300">
+            <tr className="border-b border-gilt-deep text-gilt-deep">
               <th scope="col" className="py-2 pr-4">{s.day}</th>
               <th scope="col" className="py-2 pr-4">{s.time}</th>
               <th scope="col" className="py-2 pr-4">{s.game}</th>
@@ -23,7 +23,7 @@ const ProgrammeTable = () => {
           </thead>
           <tbody>
             {poker.map((p) => (
-              <tr key={`${p.day}-${p.time}`} className="border-b border-violet-700">
+              <tr key={`${p.day}-${p.time}`} className="border-b border-gilt-deep/30">
                 <th scope="row" className="py-2 pr-4 font-normal">
                   {p.day === "daily" ? s.daily : dayNames[lang][p.day]}
                 </th>

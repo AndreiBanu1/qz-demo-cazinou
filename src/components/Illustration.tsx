@@ -1,100 +1,103 @@
 import type { ReactNode } from "react";
 import type { IllustrationId } from "@/content/types";
+import { colors } from "@/config/theme.js";
 
-// Original line drawings for this demo (spec §8): gold strokes on violet, no people, money, text or brands.
-const GOLD = "#FAC775";
-const SOFT = "#CECBF6";
+// Original line drawings for this demo (spec §8): gilt strokes on night, no people, money, text or brands.
+// Shown inside arch-topped frames (rounded-arch), the salon-window shape used for every picture on the site.
+const GOLD = colors.gilt;
+const SOFT = colors.haze;
 
 const drawings: Record<IllustrationId, ReactNode> = {
   facets: (
     <g fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinejoin="round">
-      <path d="M200 30 290 95 250 230 150 230 110 95Z" />
-      <path d="M110 95h180M200 30l-40 65 40 135 40-135-40-65M160 95l-10 135M240 95l10 135" />
-      <path d="M60 60l8 0M64 56l0 8M330 170l10 0M335 165l0 10M320 50l6 0M323 47l0 6" stroke={SOFT} strokeWidth="2" />
+      <path d="M200 40 290 105 250 240 150 240 110 105Z" />
+      <path d="M110 105h180M200 40l-40 65 40 135 40-135-40-65M160 105l-10 135M240 105l10 135" />
     </g>
   ),
   slots: (
-    <g fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinejoin="round">
-      {[70, 165, 260].map((x) => (
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round">
+      {[85, 170, 255].map((x) => (
         <g key={x}>
-          <path d={`M${x} 230V90a35 35 0 0 1 70 0v140Z`} />
-          <rect x={x + 12} y="95" width="46" height="40" rx="4" />
-          <path d={`M${x + 12} 160h46M${x + 12} 175h46`} stroke={SOFT} strokeWidth="2" />
-          <path d={`M${x} 200h70`} />
+          <path d={`M${x} 250V120a30 30 0 0 1 60 0v130Z`} />
+          <rect x={x + 10} y="124" width="40" height="36" rx="4" />
+          <path d={`M${x + 10} 185h40M${x + 10} 198h40`} stroke={SOFT} strokeWidth="1.6" />
+          <path d={`M${x} 222h60`} />
         </g>
       ))}
-      <path d="M40 230h320" />
+      <path d="M55 250h290" />
+      <path d="M200 28v40M184 68h32l-6 12h-20Z" stroke={SOFT} strokeWidth="1.6" />
     </g>
   ),
   cardTable: (
-    <g fill="none" stroke={GOLD} strokeWidth="2.5">
-      <ellipse cx="200" cy="130" rx="150" ry="85" />
-      <ellipse cx="200" cy="130" rx="120" ry="60" stroke={SOFT} strokeWidth="2" />
+    <g fill="none" stroke={GOLD} strokeWidth="2.2">
+      <ellipse cx="200" cy="150" rx="135" ry="78" />
+      <ellipse cx="200" cy="150" rx="108" ry="56" stroke={SOFT} strokeWidth="1.6" />
       {[
-        [200, 30],
-        [300, 52],
-        [352, 130],
-        [300, 208],
-        [200, 230],
-        [100, 208],
-        [48, 130],
-        [100, 52],
+        [200, 58],
+        [292, 80],
+        [338, 150],
+        [292, 220],
+        [200, 242],
+        [108, 220],
+        [62, 150],
+        [108, 80],
       ].map(([cx, cy]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="12" />
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="11" />
       ))}
-      <path d="M175 95h50v20h-50Z" stroke={SOFT} strokeWidth="2" />
+      <path d="M180 120h40v18h-40Z" stroke={SOFT} strokeWidth="1.6" />
     </g>
   ),
   wheel: (
-    <g fill="none" stroke={GOLD} strokeWidth="2.5">
-      <circle cx="200" cy="130" r="105" />
-      <circle cx="200" cy="130" r="80" stroke={SOFT} strokeWidth="2" />
-      <circle cx="200" cy="130" r="40" />
-      <circle cx="200" cy="130" r="10" />
+    <g fill="none" stroke={GOLD} strokeWidth="2.2">
+      <circle cx="200" cy="150" r="100" />
+      <circle cx="200" cy="150" r="76" stroke={SOFT} strokeWidth="1.6" />
+      <circle cx="200" cy="150" r="38" />
+      <circle cx="200" cy="150" r="9" />
       {Array.from({ length: 16 }, (_, i) => {
         const a = (i * Math.PI) / 8;
-        const p = (r: number) => `${(200 + r * Math.cos(a)).toFixed(1)} ${(130 + r * Math.sin(a)).toFixed(1)}`;
-        return <path key={i} d={`M${p(40)}L${p(80)}`} strokeWidth="1.5" />;
+        const p = (r: number) => `${(200 + r * Math.cos(a)).toFixed(1)} ${(150 + r * Math.sin(a)).toFixed(1)}`;
+        return <path key={i} d={`M${p(38)}L${p(76)}`} strokeWidth="1.3" />;
       })}
     </g>
   ),
   stage: (
-    <g fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinejoin="round">
-      <path d="M40 200h320l-20 30H60Z" />
-      <path d="M200 200V110M180 200h40" />
-      <rect x="190" y="88" width="20" height="26" rx="10" />
-      <path d="M90 30v20M70 50h40l-6 14H76Z" />
-      <path d="M78 66 40 196M102 66l40 130" stroke={SOFT} strokeWidth="1.5" strokeDasharray="4 6" />
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round">
+      <path d="M50 225h300l-17 28H67Z" />
+      <path d="M200 225V140M182 225h36" />
+      <rect x="190.5" y="118" width="19" height="24" rx="9.5" />
+      <path d="M95 50v20M76 70h38l-6 13H82Z" />
+      <path d="M84 85 50 222M106 85l36 137" stroke={SOFT} strokeWidth="1.3" strokeDasharray="4 6" />
+      <path d="M60 40q140-30 280 0" stroke={SOFT} strokeWidth="1.6" />
     </g>
   ),
   bar: (
-    <g fill="none" stroke={GOLD} strokeWidth="2.5" strokeLinejoin="round">
-      <path d="M40 170h320v60H40ZM40 185h320" />
-      <path d="M120 120l-14 30h28Zm0 30v20M100 170h40" />
-      <path d="M200 125h20l-3 45h-14Z" />
-      <path d="M280 120q0 25 14 25t14-25Zm14 25v25M282 170h24" />
-      <path d="M200 20v30M180 50h40l-8 16h-24Z" stroke={SOFT} strokeWidth="2" />
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round">
+      <path d="M50 190h300v60H50ZM50 205h300" />
+      <path d="M130 140l-13 28h26Zm0 28v22M112 190h36" />
+      <path d="M200 145h18l-3 45h-12Z" />
+      <path d="M272 140q0 23 13 23t13-23Zm13 23v27M274 190h22" />
+      <path d="M200 40v32M182 72h36l-7 14h-22Z" stroke={SOFT} strokeWidth="1.6" />
     </g>
   ),
 };
 
 interface Props {
   id: IllustrationId;
-  label: string;
+  /** The accessible name; omit for a decorative drawing next to text that already says the same. */
+  label?: string;
   className?: string;
 }
 
 const Illustration = ({ id, label, className = "" }: Props) => (
   <svg
-    role="img"
-    aria-label={label}
-    viewBox="0 0 400 260"
+    {...(label ? { role: "img", "aria-label": label } : { "aria-hidden": true })}
+    viewBox="0 0 400 300"
     width="400"
-    height="260"
-    className={`h-auto w-full ${className}`}
+    height="300"
+    className={`block h-auto w-full ${className}`}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect width="400" height="260" rx="16" fill="#26215C" />
+    <rect width="400" height="300" fill={colors.nightSoft} />
     {drawings[id]}
   </svg>
 );

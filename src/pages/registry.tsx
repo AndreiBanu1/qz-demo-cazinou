@@ -24,8 +24,8 @@ export const pageComponents: Record<PageKey, ComponentType> = {
 
 // Bilingual: Cloudflare Pages serves this one 404.html for every unknown path in either language.
 export const NotFound = () => (
-  <div className="mx-auto max-w-6xl px-4 py-12">
-    <h1 tabIndex={-1} className="font-display text-4xl text-gold-300 focus:outline-none">
+  <div className="mx-auto max-w-6xl px-4 py-16">
+    <h1 tabIndex={-1} className="font-display text-h1 text-amethyst focus:outline-none">
       Pagina nu există <span lang="en">/ Page not found</span>
     </h1>
     <p className="mt-4 text-lg">Pagina căutată nu există pe acest site demonstrativ.</p>
@@ -34,12 +34,12 @@ export const NotFound = () => (
     </p>
     <ul className="mt-6 space-y-2">
       <li>
-        <Link to="/" className="text-gold-300 underline underline-offset-2">
+        <Link to="/" className="text-gilt-deep underline underline-offset-2">
           Pagina principală
         </Link>
       </li>
       <li lang="en">
-        <Link to="/en" className="text-gold-300 underline underline-offset-2">
+        <Link to="/en" className="text-gilt-deep underline underline-offset-2">
           Home page
         </Link>
       </li>

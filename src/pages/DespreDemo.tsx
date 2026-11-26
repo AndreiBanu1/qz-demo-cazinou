@@ -1,5 +1,6 @@
 import { site } from "@/config/site";
 import { SectionBlock } from "@/components/ContentSections";
+import PageHero from "@/components/PageHero";
 import { bannedDisplay, despreDemo } from "@/content/despre-demo";
 import { latestResults } from "@/content/rezultate";
 import { useLang } from "@/hooks/use-lang";
@@ -7,14 +8,12 @@ import { useLang } from "@/hooks/use-lang";
 const DespreDemo = () => {
   const lang = useLang();
   const c = despreDemo[lang];
-  const h2 = "font-display text-3xl text-gold-300";
+  const h2 = "font-display text-h2 text-amethyst";
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 tabIndex={-1} className="font-display text-4xl text-gold-300 focus:outline-none md:text-5xl">
-        {c.h1}
-      </h1>
-      <p className="mt-4 max-w-prose text-xl leading-relaxed">{c.lead}</p>
-      <div className="grid gap-x-10 md:grid-cols-2">
+    <>
+    <PageHero h1={c.h1} lead={c.lead} />
+    <div className="mx-auto max-w-6xl px-4 py-16">
+      <div className="grid gap-x-10 gap-y-14 md:grid-cols-2">
         <SectionBlock section={c.invented} />
         <SectionBlock section={c.real} />
       </div>
@@ -27,7 +26,7 @@ const DespreDemo = () => {
         <div className="mt-4 overflow-x-auto">
           <table className="w-full border-collapse text-left text-base">
             <thead>
-              <tr className="border-b border-gold-300 text-gold-300">
+              <tr className="border-b border-gilt-deep text-gilt-deep">
                 {c.law.columns.map((col) => (
                   <th key={col} scope="col" className="py-2 pr-4 align-bottom">
                     {col}
@@ -37,9 +36,9 @@ const DespreDemo = () => {
             </thead>
             <tbody>
               {c.law.rows.map((r) => (
-                <tr key={r.source} className="border-b border-violet-700 align-top">
+                <tr key={r.source} className="border-b border-gilt-deep/30 align-top">
                   <th scope="row" className="py-3 pr-4 font-normal">
-                    <a href={r.url} className="text-gold-300 underline underline-offset-2" rel="noopener">
+                    <a href={r.url} className="text-gilt-deep underline underline-offset-2" rel="noopener">
                       {r.source}
                     </a>
                   </th>
@@ -50,7 +49,7 @@ const DespreDemo = () => {
             </tbody>
           </table>
         </div>
-        <p className="mt-3 max-w-prose text-lavender-200">{c.law.note}</p>
+        <p className="mt-3 max-w-prose text-ink-soft">{c.law.note}</p>
       </section>
 
       <SectionBlock section={c.checks} />
@@ -63,7 +62,7 @@ const DespreDemo = () => {
         <div className="mt-4 grid gap-6 sm:grid-cols-2">
           {(["ro", "en"] as const).map((l) => (
             <div key={l}>
-              <h3 className="text-lg text-gold-300">{l === "ro" ? c.banned.roLabel : c.banned.enLabel}</h3>
+              <h3 className="font-display text-h3 text-amethyst">{l === "ro" ? c.banned.roLabel : c.banned.enLabel}</h3>
               <p className="mt-1" lang={l}>
                 {bannedDisplay[l].join(", ")}
               </p>
@@ -78,15 +77,15 @@ const DespreDemo = () => {
         </h2>
         {latestResults ? (
           <>
-            <p className="mt-3 text-lavender-200">
+            <p className="mt-3 text-ink-soft">
               {latestResults.date} · {latestResults.where[lang]}
             </p>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full max-w-3xl border-collapse text-left">
                 <tbody>
                   {latestResults.rows.map((r) => (
-                    <tr key={r.tool + r.what.en} className="border-b border-violet-700 align-top">
-                      <th scope="row" className="py-2 pr-4 font-normal text-gold-300">
+                    <tr key={r.tool + r.what.en} className="border-b border-gilt-deep/30 align-top">
+                      <th scope="row" className="py-2 pr-4 font-normal text-gilt-deep">
                         {r.tool}
                       </th>
                       <td className="py-2 pr-4">{r.what[lang]}</td>
@@ -106,11 +105,12 @@ const DespreDemo = () => {
 
       <p className="mt-10">
         {c.qz.text}{" "}
-        <a href={site.qzUrl} className="text-gold-300 underline underline-offset-2">
+        <a href={site.qzUrl} className="text-gilt-deep underline underline-offset-2">
           {c.qz.link}
         </a>
       </p>
     </div>
+    </>
   );
 };
 

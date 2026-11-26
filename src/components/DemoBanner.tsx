@@ -7,8 +7,8 @@ import { useLang } from "@/hooks/use-lang";
 const DemoBanner = () => {
   const lang = useLang();
   return (
-    <aside aria-label={ui[lang].bannerLabel} className="bg-gold-50 px-4 py-2 text-center text-sm text-gold-900">
-      <Link to={pathFor("despre-demo", lang)} className="underline underline-offset-2">
+    <aside aria-label={ui[lang].bannerLabel} className="bg-banner px-4 py-2 text-center text-sm text-ink">
+      <Link to={pathFor("despre-demo", lang)} className="underline decoration-gilt-deep underline-offset-2 hover:text-amethyst">
         {ui[lang].banner}
       </Link>
     </aside>

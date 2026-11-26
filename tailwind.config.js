@@ -8,11 +8,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        violet: { 950: colors.violet950, 900: colors.violet900, 800: colors.violet800, 700: colors.violet700 },
-        gold: { 50: colors.gold50, 300: colors.gold300, 900: colors.gold900 },
-        lavender: { DEFAULT: colors.lavender, 200: colors.lavender200 },
+        night: { DEFAULT: colors.night, soft: colors.nightSoft },
+        amethyst: colors.amethyst,
+        orchid: colors.orchid,
+        quartz: { DEFAULT: colors.quartz, deep: colors.quartzDeep },
+        ink: { DEFAULT: colors.ink, soft: colors.inkSoft },
+        mist: colors.mist,
+        haze: colors.haze,
+        gilt: { DEFAULT: colors.gilt, deep: colors.giltDeep },
+        banner: colors.banner,
       },
-      fontFamily: { display: ['"Cormorant Garamond"', "Georgia", "serif"] },
+      fontFamily: {
+        display: ['"Bodoni Moda Variable"', '"Bodoni 72"', "Didot", "Georgia", "serif"],
+        sans: ['"Jost Variable"', "ui-sans-serif", "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"],
+      },
+      fontSize: {
+        // A 1.333 scale from 18 px body (docs/design.md).
+        lead: ["1.333rem", { lineHeight: "1.6" }],
+        h3: ["1.5rem", { lineHeight: "1.25" }],
+        h2: ["2.375rem", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
+        h1: ["clamp(2.5rem, 6vw, 4.25rem)", { lineHeight: "1.02", letterSpacing: "-0.015em" }],
+        mark: ["clamp(3.5rem, 10vw, 7.5rem)", { lineHeight: "0.9", letterSpacing: "0.02em" }],
+      },
+      borderRadius: { arch: "999px 999px 0.75rem 0.75rem" },
+      keyframes: {
+        band: { from: { opacity: "0", transform: "scale(0.96)" }, to: { opacity: "1", transform: "scale(1)" } },
+      },
     },
   },
   plugins: [

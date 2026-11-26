@@ -17,7 +17,7 @@ const LanguageSwitch = () => {
       lang={twin.lang}
       title={s.title}
       data-lang-switch
-      className="rounded px-2 py-1 text-sm text-lavender-200 underline-offset-2 hover:text-gold-300 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-300"
+      className="rounded px-2 py-1 text-sm text-haze underline-offset-4 hover:text-gilt hover:underline"
     >
       {s.label}
     </Link>

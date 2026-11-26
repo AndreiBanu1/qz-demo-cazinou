@@ -1,6 +1,6 @@
 import type { Lang } from "@/config/site";
 
-// The latest real test runs (spec §11), copied from docs/rezultate/<date>/rezumat.md. Every cell is in both languages.
+// The latest real test runs (spec §11), copied from docs/rezultate/2026-11-26/rezumat.md. Every cell is in both languages.
 export interface ResultRow {
   tool: string;
   what: Record<Lang, string>;

@@ -32,10 +32,10 @@ const makeResolver =
   };
 
 const input =
-  "mt-1 block w-full [color-scheme:dark] rounded-md border border-lavender-200 bg-violet-950 px-3 py-2 text-lavender placeholder:text-lavender-200 focus:border-gold-300 focus:outline-none focus:ring-2 focus:ring-gold-300 aria-[invalid=true]:border-red-300";
-const label = "block text-base text-lavender";
-const hint = "mt-1 text-sm text-lavender-200";
-const errorText = "mt-1 text-sm text-gold-300";
+  "mt-1.5 block w-full rounded-xl border border-ink-soft/70 bg-white px-4 py-2.5 text-ink placeholder:text-ink-soft focus:border-amethyst focus:outline-none focus:ring-2 focus:ring-amethyst/40 aria-[invalid=true]:border-amethyst aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-amethyst/30";
+const label = "block text-base text-ink";
+const hint = "mt-1 text-sm text-ink-soft";
+const errorText = "mt-1.5 text-sm font-medium text-amethyst";
 
 const RequestForm = () => {
   const lang = useLang();
@@ -132,13 +132,13 @@ const RequestForm = () => {
 
   if (status.kind === "sent")
     return (
-      <div ref={statusRef} tabIndex={-1} role="status" className="mt-6 rounded-xl border border-gold-300 bg-violet-900 p-6">
-        <p className="font-display text-2xl text-gold-300">{s.success}</p>
+      <div ref={statusRef} tabIndex={-1} role="status" className="mt-6 rounded-xl border border-gilt-deep bg-quartz-deep p-6">
+        <p className="font-display text-h3 text-amethyst">{s.success}</p>
         <p className="mt-2 max-w-prose">{s.successNext}</p>
         <button
           type="button"
           onClick={() => setStatus({ kind: "idle" })}
-          className="mt-4 rounded-md border border-gold-300 px-4 py-2 text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-300"
+          className="mt-4 rounded-full px-5 py-2 text-amethyst ring-1 ring-amethyst hover:bg-quartz-deep"
         >
           {s.again}
         </button>
@@ -147,17 +147,17 @@ const RequestForm = () => {
 
   return (
     <div className="mt-6 max-w-2xl">
-      <p className="rounded-md bg-gold-50 p-4 text-gold-900">{s.notice}</p>
+      <p className="rounded-2xl bg-banner p-5 text-ink">{s.notice}</p>
       <noscript>
-        <p className="mt-4 rounded-md border border-gold-300 p-4">{s.noscript}</p>
+        <p className="mt-4 rounded-2xl border border-gilt-deep p-4">{s.noscript}</p>
       </noscript>
       <form noValidate onSubmit={onSubmit} className="mt-6 space-y-6">
         <fieldset>
           <legend className={label}>{s.tipLegend}</legend>
           <div className="mt-2 space-y-2">
             {REQUEST_TYPES.map((t) => (
-              <label key={t} className="flex items-center gap-3 text-lavender">
-                <input type="radio" value={t} {...register("tip")} className="h-5 w-5 accent-gold-300" />
+              <label key={t} className="flex items-center gap-3 text-ink">
+                <input type="radio" value={t} {...register("tip")} className="h-5 w-5 accent-amethyst" />
                 {s.types[t]}
               </label>
             ))}
@@ -244,7 +244,7 @@ const RequestForm = () => {
 
         <div>
           <label htmlFor={id("mesaj")} className={label}>
-            {s.mesaj} {tip !== "intrebare" && <span className="text-lavender-200">{s.mesajOptional}</span>}
+            {s.mesaj} {tip !== "intrebare" && <span className="text-ink-soft">{s.mesajOptional}</span>}
           </label>
           <textarea
             id={id("mesaj")}
@@ -287,18 +287,18 @@ const RequestForm = () => {
 
         <div className="space-y-3">
           <div>
-            <label className="flex items-start gap-3 text-lavender">
-              <input type="checkbox" aria-invalid={invalid("varsta")} aria-describedby={described("varsta")} {...register("varsta")} className="mt-1 h-5 w-5 accent-gold-300" />
+            <label className="flex items-start gap-3 text-ink">
+              <input type="checkbox" aria-invalid={invalid("varsta")} aria-describedby={described("varsta")} {...register("varsta")} className="mt-1 h-5 w-5 accent-amethyst" />
               {s.varsta}
             </label>
             {err("varsta")}
           </div>
           <div>
-            <label className="flex items-start gap-3 text-lavender">
-              <input type="checkbox" aria-invalid={invalid("acord")} aria-describedby={described("acord")} {...register("acord")} className="mt-1 h-5 w-5 accent-gold-300" />
+            <label className="flex items-start gap-3 text-ink">
+              <input type="checkbox" aria-invalid={invalid("acord")} aria-describedby={described("acord")} {...register("acord")} className="mt-1 h-5 w-5 accent-amethyst" />
               <span>
                 {s.acordBefore}{" "}
-                <Link to={pathFor("confidentialitate", lang)} className="text-gold-300 underline underline-offset-2">
+                <Link to={pathFor("confidentialitate", lang)} className="text-gilt-deep underline underline-offset-2">
                   {s.acordLink}
                 </Link>{" "}
                 {s.acordAfter}
@@ -320,13 +320,13 @@ const RequestForm = () => {
         {hydrated && <Turnstile onToken={onToken} onExpire={onExpire} onLoadError={onLoadError} resetKey={resetKey} language={lang} />}
 
         {turnstileFailed && (
-          <p role="alert" className="rounded-md border border-gold-300 p-3">
+          <p role="alert" className="rounded-2xl border border-amethyst bg-white p-4">
             {s.turnstileError}
           </p>
         )}
         {waiting && !token && <p role="status">{s.waiting}</p>}
         {status.kind === "error" && (
-          <div ref={statusRef} tabIndex={-1} role="alert" className="rounded-md border border-gold-300 p-3">
+          <div ref={statusRef} tabIndex={-1} role="alert" className="rounded-2xl border border-amethyst bg-white p-4">
             {s.sendErrors[status.code]}
           </div>
         )}
@@ -334,7 +334,7 @@ const RequestForm = () => {
         <button
           type="submit"
           disabled={!hydrated || status.kind === "sending"}
-          className="rounded-md bg-gold-300 px-6 py-3 text-lg text-gold-900 hover:bg-gold-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lavender disabled:opacity-60"
+          className="rounded-full bg-amethyst px-8 py-3 text-base font-medium text-mist hover:bg-ink focus-visible:outline-amethyst disabled:opacity-60"
         >
           {status.kind === "sending" ? s.sending : status.kind === "error" ? s.retry : s.submit}
         </button>

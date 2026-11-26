@@ -23,7 +23,7 @@ export const JocResponsabil = () => {
       content={jocResponsabil[lang]}
       after={
         <p className="mt-6">
-          <a href={site.onjnUrl} className="text-gold-300 underline underline-offset-2" rel="noopener">
+          <a href={site.onjnUrl} className="text-gilt-deep underline underline-offset-2" rel="noopener">
             {ui[lang].footer.onjn}
           </a>
         </p>

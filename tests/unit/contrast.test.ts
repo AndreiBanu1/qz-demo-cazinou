@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-// @ts-expect-error plain JS module without types
 import { THEME_PAIRS } from "@/config/theme.js";
 
 // WCAG 2.x relative luminance and contrast ratio.

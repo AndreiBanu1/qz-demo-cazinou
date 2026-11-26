@@ -6,7 +6,7 @@ import { useLang } from "@/hooks/use-lang";
 const LicencePlaceholder = () => {
   const lang = useLang();
   return (
-    <div data-licence-placeholder className="rounded-md border border-dashed border-lavender-200 p-3 text-sm text-lavender-200">
+    <div data-licence-placeholder className="rounded-xl border border-dashed border-haze p-4 text-sm text-haze">
       {ui[lang].footer.licence}
     </div>
   );

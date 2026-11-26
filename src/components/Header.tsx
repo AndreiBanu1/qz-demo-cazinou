@@ -15,8 +15,8 @@ const NAV: Exclude<PageKey, "home" | "joc-responsabil" | "despre-demo" | "confid
 ];
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
-  `block rounded px-2 py-2 text-base hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-300 md:py-1 md:text-sm ${
-    isActive ? "text-gold-300 underline underline-offset-4" : "text-lavender"
+  `block rounded px-2 py-2 text-base tracking-wide hover:text-gilt md:py-1 md:text-[0.95rem] ${
+    isActive ? "text-gilt underline decoration-1 underline-offset-[0.45em]" : "text-mist"
   }`;
 
 const Header = () => {
@@ -28,11 +28,11 @@ const Header = () => {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="border-b border-violet-700 bg-violet-950">
+    <header className="border-b border-gilt/25 bg-night">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-3">
         <Link
           to={pathFor("home", lang)}
-          className="rounded font-display text-2xl text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-300"
+          className="rounded font-display text-[1.9rem] leading-none tracking-[0.04em] text-gilt"
         >
           Ametist
         </Link>
@@ -42,7 +42,7 @@ const Header = () => {
             data-badge="18plus"
             role="img"
             aria-label={s.badge.label}
-            className="rounded-md border border-gold-300 px-2 py-0.5 text-sm text-gold-300"
+            className="rounded-full px-2.5 py-0.5 text-sm text-gilt ring-1 ring-gilt"
           >
             {s.badge.text}
           </span>
@@ -51,7 +51,7 @@ const Header = () => {
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((o) => !o)}
-            className="rounded-md border border-lavender-200 px-3 py-1.5 text-sm text-lavender focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold-300 md:hidden"
+            className="rounded-full px-3.5 py-1.5 text-sm text-mist ring-1 ring-haze md:hidden"
           >
             {open ? s.nav.close : s.nav.menu}
           </button>

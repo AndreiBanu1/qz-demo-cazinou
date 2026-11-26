@@ -1,4 +1,4 @@
-// @ts-expect-error plain JS module without types (shared with scripts/build-og-image.mjs)
+// Plain JS (with age.d.ts) so scripts/build-og-image.mjs can read it too.
 import { MIN_AGE } from "./age.js";
 
 export type Lang = "ro" | "en";
@@ -8,7 +8,7 @@ export const site = {
   name: "Ametist",
   fullName: "Salon Ametist",
   url: "https://ametist-demo.pages.dev",
-  minAge: MIN_AGE as number,
+  minAge: MIN_AGE,
   bannerText: {
     ro: "Site demonstrativ realizat de Quality Zone. Ametist este un local inventat și nu oferă jocuri de noroc, nici online, nici fizic.",
     en: "Demo site built by Quality Zone. Ametist is an invented venue and offers no gambling, online or in person.",

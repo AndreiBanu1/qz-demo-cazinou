@@ -64,30 +64,30 @@ const AgeGate = () => {
       aria-labelledby={titleId}
       aria-describedby={textId}
       onKeyDown={onKeyDown}
-      className="fixed inset-0 z-50 items-center justify-center bg-violet-950/95 p-4"
+      className="fixed inset-0 z-50 items-center justify-center bg-night/95 p-4"
     >
-      <div className="w-full max-w-sm rounded-xl border border-gold-300 bg-violet-700 p-6 text-center">
-        <p className="font-display text-3xl text-gold-300">{s.title}</p>
-        <h2 id={titleId} className="mt-2 text-xl text-lavender">
+      <div className="w-full max-w-md border-[5px] border-double border-gilt/80 bg-night-soft px-6 py-9 text-center sm:px-10">
+        <p className="font-display text-[2.6rem] leading-none tracking-[0.03em] text-gilt">{s.title}</p>
+        <h2 id={titleId} className="mt-5 font-display text-h3 text-mist">
           {s.question}
         </h2>
-        <p id={textId} className="mt-2 text-sm text-lavender-200">
+        <p id={textId} className="mt-2 text-sm text-haze">
           {s.text}
         </p>
-        <p className="mt-2 text-xs text-lavender-200">{s.demo}</p>
+        <p className="mt-2 text-xs text-haze">{s.demo}</p>
         <div className="mt-5 flex justify-center gap-3">
           <button
             ref={yes}
             type="button"
             onClick={accept}
-            className="rounded-md bg-gold-300 px-5 py-2.5 text-gold-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lavender"
+            className="rounded-full bg-gilt px-6 py-2.5 font-medium text-night hover:bg-mist focus-visible:outline-mist"
           >
             {s.yes}
           </button>
           <Link
             ref={no}
             to={pathFor("acces", lang)}
-            className="rounded-md border border-lavender-200 px-5 py-2.5 text-lavender focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lavender"
+            className="rounded-full px-6 py-2.5 text-mist ring-1 ring-haze hover:ring-mist focus-visible:outline-mist"
           >
             {s.no}
           </Link>

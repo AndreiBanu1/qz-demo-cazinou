@@ -17,15 +17,15 @@ const CallNote = ({ showFormLink = true }: { showFormLink?: boolean }) => {
         aria-expanded={open}
         aria-controls={noteId}
         onClick={() => setOpen((o) => !o)}
-        className="rounded-md border border-gold-300 px-5 py-2.5 text-base text-gold-300 hover:bg-violet-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+        className="rounded-full px-6 py-2.5 text-base text-amethyst ring-1 ring-amethyst hover:bg-quartz-deep"
       >
         {s.button}
       </button>
-      <div id={noteId} hidden={!open} className="mt-3 max-w-md rounded-md bg-violet-700 p-4 text-sm text-lavender">
+      <div id={noteId} hidden={!open} className="mt-3 max-w-md rounded-2xl bg-quartz-deep p-5 text-base text-ink">
         <p>{s.text}</p>
         {showFormLink && (
           <p className="mt-2">
-            <Link to={pathFor("contact", lang)} className="text-gold-300 underline underline-offset-2">
+            <Link to={pathFor("contact", lang)} className="text-gilt-deep underline underline-offset-2">
               {s.link}
             </Link>
           </p>
