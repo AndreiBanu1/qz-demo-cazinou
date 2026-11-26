@@ -26,11 +26,11 @@ The user found the first version too plain and asked for a design inspired by le
 | Name | Hex | Role |
 |---|---|---|
 | Geode night | `#140C22` | hero, inner-page title bands, footer |
-| Amethyst | `#4A2470` | the geode's deep bands, emphasis panels |
+| Amethyst | `#43206A` | the geode's deep bands, emphasis panels, headings on quartz |
 | Orchid | `#B48CD8` | the geode's light bands, focus rings on dark |
 | Quartz | `#F3EEF6` | the reading background (light, slightly lilac, not cream) |
-| Plum ink | `#2A1838` | body text on quartz |
-| Gilt | `#D2AE5A` on dark, `#7A5A12` on quartz | wordmark, hairline rules, links; never as a fill behind text |
+| Plum ink | `#1C0E2C` (secondary `#3D2C50`) | body text on quartz |
+| Gilt | `#D2AE5A` on dark, `#664A08` on quartz | wordmark, hairline rules, links; never as a fill behind text |
 
 **Type:**
 
@@ -82,3 +82,13 @@ Inner pages: a night title band (Bodoni h1 + a small geode fragment), then quart
 3. **The first idea for the areas was a grid of identical cards.** That is the SaaS card kit. **Changed to:** alternating editorial rows with the line vignettes, like Marina Bay Sands' asymmetric blocks.
 4. **The first idea for the events was a list.** **Changed to:** a printed-programme frame, because the content is literally a programme, and the double rule carries the meaning "this is the programme".
 5. **The first idea for motion was reveals on each section.** **Changed to:** one sequence, on the hero geode only, and off with `prefers-reduced-motion`.
+
+## Revision, 2026-11-26: stronger text on the light background
+
+The user found the text in the room rows hard to see on the quartz background. It passed WCAG AA, but it read faint: Jost at weight 400, the soft secondary colour, and Bodoni's hairlines all thin it out on a light ground.
+
+**Changed:**
+- **Colours:** plum ink `#2A1838` → `#1C0E2C`; secondary `#5A4868` → `#3D2C50`; deep gilt `#76560F` → `#664A08`; amethyst `#4A2470` → `#43206A`.
+- **Body text:** Jost at weight 450.
+- **Bodoni on quartz:** weight 600; on night it stays at 500, where the gilt reads well.
+- **Room descriptions and the timeline:** now in the main ink colour, not the secondary one.

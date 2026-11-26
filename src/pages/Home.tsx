@@ -51,13 +51,13 @@ const Home = () => {
         <h2 id="seara" className="font-display text-h2 text-amethyst">
           {c.evening.heading}
         </h2>
-        <p className="mt-4 max-w-[60ch] text-ink-soft">{c.evening.intro}</p>
+        <p className="mt-4 max-w-[60ch] text-lead text-ink">{c.evening.intro}</p>
         <ol className="mt-12 grid gap-8 border-l border-gilt-deep/40 pl-6 md:grid-cols-6 md:gap-6 md:border-l-0 md:border-t md:pl-0 md:pt-8">
           {c.evening.steps.map((s) => (
             <li key={s.time} className="relative">
               <span aria-hidden="true" className="absolute -left-[1.85rem] top-2 h-2.5 w-2.5 rounded-full bg-gilt-deep md:-top-[2.45rem] md:left-0" />
               <p className="font-display text-h3 text-gilt-deep">{s.time}</p>
-              <p className="mt-1 text-base text-ink">{s.text}</p>
+              <p className="mt-1 text-base font-medium text-ink">{s.text}</p>
             </li>
           ))}
         </ol>
@@ -81,7 +81,7 @@ const Home = () => {
                     {a.title}
                   </Link>
                 </h3>
-                <p className="mt-4 max-w-[46ch] text-lead text-ink-soft">{a.text}</p>
+                <p className="mt-4 max-w-[46ch] text-lead text-ink">{a.text}</p>
               </div>
             </li>
           ))}

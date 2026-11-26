@@ -9,10 +9,17 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-quartz font-sans text-[1.125rem] leading-[1.65] text-ink antialiased;
+    /* Jost reads thin at its regular weight on a light background; 450 keeps it light in style but solid. */
+    @apply bg-quartz font-sans text-[1.125rem] font-[450] leading-[1.65] text-ink antialiased;
   }
   .font-display {
     font-optical-sizing: auto;
+    font-weight: 500;
+  }
+  /* On the light reading background Bodoni's hairlines need more weight than on night, where gilt glows. */
+  .bg-quartz .font-display,
+  main > :not(.bg-night):not(.bg-amethyst) .font-display {
+    font-weight: 600;
   }
   :focus-visible {
     outline: 2px solid currentColor;

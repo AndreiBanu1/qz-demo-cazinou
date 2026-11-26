@@ -2,16 +2,16 @@
 export const colors = {
   night: "#140C22", // hero, title bands, footer
   nightSoft: "#21153A", // raised surfaces on night
-  amethyst: "#4A2470", // the geode's deep bands, emphasis panels
+  amethyst: "#43206A", // the geode's deep bands, emphasis panels, headings on quartz
   orchid: "#B48CD8", // the geode's light bands, focus on night
   quartz: "#F3EEF6", // the reading background
   quartzDeep: "#E6DDEE", // quiet panels on quartz
-  ink: "#2A1838", // body text on quartz
-  inkSoft: "#5A4868", // secondary text on quartz
+  ink: "#1C0E2C", // body text on quartz (darkened 2026-11-26: the first value read faint)
+  inkSoft: "#3D2C50", // secondary text on quartz
   mist: "#EEE8F5", // body text on night
   haze: "#C2B4D6", // secondary text on night
   gilt: "#D2AE5A", // wordmark, rules and links on night
-  giltDeep: "#76560F", // rules and links on quartz
+  giltDeep: "#664A08", // rules and links on quartz
   banner: "#FBF3DE", // the demo banner
 };
 
