@@ -51,7 +51,9 @@ describe("every copy string, including those shown only after an interaction", (
     // Scans the sources, not the rendered strings (which already hold minAge's value). Times like 18:00, colours and
     // digits inside longer numbers are not ages. The one exception quotes Norme art. 128, whose text says 18 whatever
     // site.minAge is.
-    const files = [...globSync("src/**/*.{ts,tsx,js}"), "scripts/build-og-image.mjs"].filter((f) => f !== "src/config/age.js");
+    const files = [...globSync("src/**/*.{ts,tsx,js}"), "scripts/build-og-image.mjs"].filter((f) => f !== "src/config/age.js")
+      // Drawings: their numbers are coordinates, not ages.
+      .filter((f) => !f.startsWith("src/components/scenes/") && !["src/components/Illustration.tsx", "src/components/Geode.tsx"].includes(f));
     const offenders = files.flatMap((f) =>
       readFileSync(f, "utf8")
         .split("\n")

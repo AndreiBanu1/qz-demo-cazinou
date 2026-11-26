@@ -1,6 +1,18 @@
 import type { Lang } from "@/config/site";
 
-export type IllustrationId = "facets" | "slots" | "cardTable" | "wheel" | "stage" | "bar";
+export type IllustrationId =
+  | "facets"
+  | "slots"
+  | "cardTable"
+  | "wheel"
+  | "stage"
+  | "bar"
+  | "blackjack"
+  | "baccarat"
+  | "jazz"
+  | "tasting"
+  | "acoustic"
+  | "retro";
 
 export interface Section {
   id: string;

@@ -6,6 +6,7 @@ import { pokerPage } from "@/content/poker";
 import ArchFrame from "@/components/ArchFrame";
 import Geode from "@/components/Geode";
 import Illustration from "@/components/Illustration";
+import ProgrammeFrame from "@/components/ProgrammeFrame";
 import { useLang } from "@/hooks/use-lang";
 
 const primary =
@@ -88,50 +89,23 @@ const Home = () => {
         </ul>
       </section>
 
-      {/* The programme, set like a printed theatre programme: the double rule says "this is the programme". */}
-      <section id="program" aria-labelledby="program-titlu" className="scroll-mt-4 bg-amethyst py-20 text-mist">
-        <div className="mx-auto max-w-5xl px-4">
-          <div className="border-[6px] border-double border-gilt/80 px-6 py-10 md:px-12 md:py-14">
-            <h2 id="program-titlu" className="text-center font-display text-h2 text-gilt">
-              {c.programme.heading}
-            </h2>
-            <p className="mx-auto mt-3 max-w-[48ch] text-center text-mist">{c.programme.intro}</p>
-            <div className="mt-10 grid gap-10 md:grid-cols-2 md:gap-14">
-              <div>
-                <h3 className="font-display text-h3 text-gilt">{c.programme.poker}</h3>
-                <ul className="mt-4 space-y-3">
-                  {poker.map((s) => (
-                    <li key={`${s.day}-${s.time}`} className="flex items-baseline gap-2">
-                      <span>{s.day === "daily" ? p.daily : dayNames[lang][s.day]}</span>
-                      <span aria-hidden="true" className="flex-1 border-b border-dotted border-mist/50" />
-                      <span className="text-right">
-                        {s.time} {s.game ?? p.cash}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-display text-h3 text-gilt">{c.programme.evenings}</h3>
-                <ul className="mt-4 space-y-3">
-                  {events.map((e) => (
-                    <li key={e.id} className="flex items-baseline gap-2">
-                      <span>{e.title[lang]}</span>
-                      <span aria-hidden="true" className="flex-1 border-b border-dotted border-mist/50" />
-                      <span className="text-right">{e.when[lang]}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <p className="mt-10 text-center">
-              <Link to={pathFor("evenimente", lang)} className="text-gilt underline decoration-1 underline-offset-4 hover:text-mist">
-                {c.programme.link}
-              </Link>
-            </p>
-          </div>
-        </div>
-      </section>
+      <ProgrammeFrame
+        id="program"
+        heading={c.programme.heading}
+        intro={c.programme.intro}
+        columns={[
+          {
+            title: c.programme.poker,
+            rows: poker.map((s) => ({ left: s.day === "daily" ? p.daily : dayNames[lang][s.day], right: `${s.time} ${s.game ?? p.cash}` })),
+          },
+          { title: c.programme.evenings, rows: events.map((e) => ({ left: e.title[lang], right: e.when[lang] })) },
+        ]}
+        footer={
+          <Link to={pathFor("evenimente", lang)} className="text-gilt underline decoration-1 underline-offset-4 hover:text-mist">
+            {c.programme.link}
+          </Link>
+        }
+      />
 
       <section aria-labelledby="adulti" className="mx-auto max-w-6xl px-4 py-20">
         <div className="max-w-3xl rounded-3xl bg-quartz-deep p-8 md:p-10">

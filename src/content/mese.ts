@@ -4,7 +4,7 @@ export const mese: Bilingual<PageContent> = {
   ro: {
     h1: "Jocurile la masă",
     lead: "Ruletă, blackjack și baccara, la mese cu dealeri, în sala mare a salonului. Descriem aici cum arată fiecare joc, nu cum se joacă pentru bani.",
-    illustration: { id: "wheel", label: "Desen în linii aurii al unei roți de ruletă, fără bilă și fără numere" },
+    illustration: { id: "wheel", label: "Roata unei rulete desenată ca un obiect lucrat de mână, fără bilă și fără numere" },
     sections: [
       {
         id: "ruleta",
@@ -40,7 +40,7 @@ export const mese: Bilingual<PageContent> = {
   en: {
     h1: "The table games",
     lead: "Roulette, blackjack and baccarat, at dealer tables in the salon's main hall. Here we describe what each game is like, not how to play it for money.",
-    illustration: { id: "wheel", label: "Gold line drawing of a roulette wheel, with no ball and no numbers" },
+    illustration: { id: "wheel", label: "A roulette wheel drawn as a piece of craftsmanship, with no ball and no numbers" },
     sections: [
       {
         id: "ruleta",

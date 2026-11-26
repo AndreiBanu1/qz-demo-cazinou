@@ -4,7 +4,7 @@ export const sloturi: Bilingual<PageContent> = {
   ro: {
     h1: "Sala de sloturi",
     lead: "O sală liniștită, cu lumină caldă și mult spațiu între aparate. Aici vii pentru atmosferă și pentru o pauză de la oraș, nu pentru grabă.",
-    illustration: { id: "slots", label: "Desen cu un rând de aparate de joc cu ecrane goale, în linii aurii pe fond violet" },
+    illustration: { id: "slots", label: "Desen cu un rând de aparate de joc cu ecrane goale, sub o arcadă de becuri aurii" },
     sections: [
       {
         id: "sala",
@@ -40,7 +40,7 @@ export const sloturi: Bilingual<PageContent> = {
   en: {
     h1: "The slot room",
     lead: "A quiet room with warm light and plenty of space between the machines. You come here for the atmosphere and a break from the city, not to rush.",
-    illustration: { id: "slots", label: "Drawing of a row of gaming machines with blank screens, in gold lines on violet" },
+    illustration: { id: "slots", label: "Drawing of a row of gaming machines with blank screens, under an arch of gold lights" },
     sections: [
       {
         id: "sala",

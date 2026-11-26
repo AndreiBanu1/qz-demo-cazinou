@@ -6,7 +6,9 @@ import Contact from "./Contact";
 import DespreDemo from "./DespreDemo";
 import Evenimente from "./Evenimente";
 import Home from "./Home";
-import { Confidentialitate, JocResponsabil, Locatia, Mese, Poker, Sloturi } from "./simple";
+import Mese from "./Mese";
+import Poker from "./Poker";
+import { Confidentialitate, JocResponsabil, Locatia, Sloturi } from "./simple";
 
 export const pageComponents: Record<PageKey, ComponentType> = {
   home: Home,

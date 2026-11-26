@@ -102,3 +102,27 @@ The user still found the text hard to see and asked for the fonts to change comp
 - **Body: Figtree** (variable). A clean sans with solid, even strokes, made for screens. Weight 500.
 
 The palette, layout and geode are unchanged. The tests, axe and Lighthouse were rerun (`docs/rezultate/2026-11-26/`).
+
+## Revision, 2026-11-26: a signature scene for each page
+
+The user found the inner pages plain next to the home page and approved three changes.
+
+1. **One scene per page,** in the geode's style, in the title band (`src/components/scenes/`):
+   - **Poker:** the table from above, with green baize, face-down cards and the dealer's place
+   - **Table games:** a roulette wheel drawn as craftsmanship, with no ball and no numbers
+   - **Slots:** cabinets with blank screens under a lit marquee, with no symbols
+   - **Events:** a small stage with curtains and two spotlights
+   - **Venue:** the building in cross-section, after the Hippodrome's facade in points of light
+2. **One movement per scene, once, on load,** and off with reduced motion:
+   - the wheel turns once and comes to rest, while the turret turns back
+   - the poker lamp's light fades up and the cards appear seat by seat
+   - the slot marquee bulbs warm on one by one and stay on
+   - the spotlights fade up one after the other
+   - the building's lights come on a few at a time
+
+   **Nothing loops, flashes or spins like reels:** Norme art. 80 bans flashing lights in slot halls, and the site keeps well clear of that.
+3. **Structure where the content has it:**
+   - **Poker:** the weekly programme in the printed-programme frame, a shared `ProgrammeFrame` (the home page uses it too)
+   - **Table games:** the three games as a trio with their own drawings
+   - **Events:** each monthly format with its own vignette (trumpet, glass and plate, guitar, record)
+   - **Venue:** a "how the salon is laid out" section beside the cross-section

@@ -70,6 +70,67 @@ const drawings: Record<IllustrationId, ReactNode> = {
       <path d="M60 40q140-30 280 0" stroke={SOFT} strokeWidth="1.6" />
     </g>
   ),
+  blackjack: (
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round">
+      <path d="M70 90h260a130 130 0 0 1-260 0Z" />
+      <path d="M95 105h210a105 105 0 0 1-210 0" stroke={SOFT} strokeWidth="1.5" />
+      {[0, 1, 2, 3, 4].map((i) => {
+        const a = Math.PI * (0.12 + i * 0.19);
+        return <circle key={i} cx={(200 - 158 * Math.cos(a)).toFixed(1)} cy={(90 + 158 * Math.sin(a)).toFixed(1)} r="11" />;
+      })}
+      <rect x="180" y="60" width="40" height="22" rx="4" />
+      <path d="M150 140h20v28h-20ZM230 140h20v28h-20Z" stroke={SOFT} strokeWidth="1.5" />
+    </g>
+  ),
+  baccarat: (
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round">
+      <ellipse cx="200" cy="150" rx="140" ry="70" />
+      <ellipse cx="200" cy="150" rx="112" ry="50" stroke={SOFT} strokeWidth="1.5" />
+      <rect x="130" y="128" width="54" height="44" rx="6" />
+      <rect x="216" y="128" width="54" height="44" rx="6" />
+      <path d="M148 140h18v22h-18ZM234 140h18v22h-18Z" stroke={SOFT} strokeWidth="1.5" />
+      <circle cx="200" cy="70" r="11" />
+      <circle cx="80" cy="200" r="11" />
+      <circle cx="320" cy="200" r="11" />
+    </g>
+  ),
+  jazz: (
+    <g fill="none" stroke={GOLD} strokeWidth="2.4" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M90 160h170M90 175h170" />
+      <path d="M260 150q60-40 70-60v130q-10-20-70-60" />
+      <path d="M90 150v35M150 150v-28h14v28M180 150v-28h14v28M210 150v-28h14v28" />
+      <path d="M120 175q0 30 30 30h80" stroke={SOFT} strokeWidth="1.8" />
+    </g>
+  ),
+  tasting: (
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M250 70h50q4 60-25 72v58M250 70q-4 60 25 72M255 200h40" />
+      <path d="M262 105h26" stroke={SOFT} strokeWidth="1.5" />
+      <ellipse cx="160" cy="190" rx="80" ry="22" />
+      <ellipse cx="160" cy="186" rx="52" ry="12" stroke={SOFT} strokeWidth="1.5" />
+      <path d="M60 150v80M54 150v22q6 10 12 0v-22M260 225h0" />
+      <path d="M100 230h120" stroke={SOFT} strokeWidth="1.5" />
+    </g>
+  ),
+  acoustic: (
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M160 140a46 46 0 1 0 0 80a40 40 0 1 0 0-80Z" transform="rotate(-35 180 180)" />
+      <circle cx="170" cy="190" r="13" stroke={SOFT} strokeWidth="1.6" />
+      <path d="M190 172 300 64M296 58l14 14M300 54l-6-6M314 68l6 6" />
+      <path d="M196 178 303 71M201 183 306 76" stroke={SOFT} strokeWidth="1" />
+    </g>
+  ),
+  retro: (
+    <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinecap="round">
+      <circle cx="180" cy="160" r="90" />
+      <circle cx="180" cy="160" r="70" stroke={SOFT} strokeWidth="1.2" />
+      <circle cx="180" cy="160" r="52" stroke={SOFT} strokeWidth="1.2" />
+      <circle cx="180" cy="160" r="26" />
+      <circle cx="180" cy="160" r="4" fill={GOLD} />
+      <path d="M320 60v20l-70 110l-12-4" />
+      <circle cx="320" cy="56" r="10" />
+    </g>
+  ),
   bar: (
     <g fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinejoin="round">
       <path d="M50 190h300v60H50ZM50 205h300" />

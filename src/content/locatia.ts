@@ -4,8 +4,18 @@ export const locatia: Bilingual<PageContent> = {
   ro: {
     h1: "Locația",
     lead: "Salon Ametist este o clădire veche, renovată, într-un oraș din România: un restaurant la parter, un bar cu scenă și sălile de joc la etaj.",
-    illustration: { id: "bar", label: "Desen al unui bar cu pahare și o lampă, în linii aurii pe fond violet" },
+    illustration: { id: "bar", label: "Clădirea în secțiune: sălile de joc la etaj, restaurantul, barul și scena la parter" },
     sections: [
+      {
+        id: "etaje",
+        heading: "Cum e așezat salonul",
+        paragraphs: ["Desenul de sus arată clădirea în secțiune. Pe scurt:"],
+        list: [
+          "parterul: restaurantul, barul și scena mică, deschise oricui are vârsta minimă",
+          "etajul: sălile de joc, cu camera de poker, mesele de joc și sala de sloturi, separate de zona de seară",
+          "un lift și scări leagă cele două niveluri",
+        ],
+      },
       {
         id: "restaurant",
         heading: "Restaurantul",
@@ -52,8 +62,18 @@ export const locatia: Bilingual<PageContent> = {
   en: {
     h1: "The venue",
     lead: "Salon Ametist is an old, restored building in a city in Romania: a restaurant on the ground floor, a bar with a stage, and the gaming rooms upstairs.",
-    illustration: { id: "bar", label: "Drawing of a bar with glasses and a lamp, in gold lines on violet" },
+    illustration: { id: "bar", label: "The building in cross-section: the gaming rooms upstairs, the restaurant, bar and stage on the ground floor" },
     sections: [
+      {
+        id: "etaje",
+        heading: "How the salon is laid out",
+        paragraphs: ["The drawing above shows the building in cross-section. In short:"],
+        list: [
+          "the ground floor: the restaurant, the bar and the small stage, open to anyone over the minimum age",
+          "upstairs: the gaming rooms, with the poker room, the gaming tables and the slot room, apart from the evening areas",
+          "a lift and stairs connect the two levels",
+        ],
+      },
       {
         id: "restaurant",
         heading: "The restaurant",

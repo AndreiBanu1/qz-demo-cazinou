@@ -46,3 +46,45 @@ html.js:not(.age-ok) body:has([data-age-gate]) {
     animation: band 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 }
+
+/* The page scenes (src/components/scenes): one movement each, once, on load. With reduced motion they simply show
+   in their final state, which is also the state every element has without an animation. */
+.scene-turn,
+.scene-turn-back {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .scene-fade {
+    animation: scene-fade 1.4s ease-out both;
+  }
+  .scene-warm {
+    animation: scene-warm 0.7s ease-out both;
+  }
+  .scene-turn {
+    animation: scene-turn 3.6s cubic-bezier(0.12, 0.6, 0.18, 1) both;
+  }
+  .scene-turn-back {
+    animation: scene-turn-back 3.6s cubic-bezier(0.12, 0.6, 0.18, 1) both;
+  }
+}
+@keyframes scene-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes scene-warm {
+  from {
+    opacity: 0.12;
+  }
+}
+@keyframes scene-turn {
+  from {
+    transform: rotate(-220deg);
+  }
+}
+@keyframes scene-turn-back {
+  from {
+    transform: rotate(140deg);
+  }
+}

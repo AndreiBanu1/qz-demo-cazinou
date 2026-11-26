@@ -1,12 +1,13 @@
 import type { Bilingual, PageContent } from "./types";
 
-export const pokerPage: Bilingual<PageContent & { programme: { heading: string; intro: string; day: string; time: string; game: string; format: string; daily: string; cash: string } }> = {
+export const pokerPage: Bilingual<PageContent & { programme: { heading: string; intro: string; column: string; day: string; time: string; game: string; format: string; daily: string; cash: string } }> = {
   ro: {
     h1: "Camera de poker",
     lead: "O cameră separată, cu mese acoperite cu postav verde închis, dealeri care cunosc regulile pe de rost și un program săptămânal de turnee.",
-    illustration: { id: "cardTable", label: "Desen al unei mese de poker văzute de sus, fără cărți împărțite" },
+    illustration: { id: "cardTable", label: "Masa de poker văzută de sus: postav verde, cărți cu fața în jos la fiecare loc și locul dealerului" },
     programme: {
       heading: "Programul săptămânal",
+      column: "Turnee și mese cash",
       intro: "Programul este același în fiecare săptămână. Înscrierea la turnee se face la recepția camerei de poker, în seara respectivă; site-ul nu primește înscrieri.",
       day: "Ziua",
       time: "Ora",
@@ -48,9 +49,10 @@ export const pokerPage: Bilingual<PageContent & { programme: { heading: string; 
   en: {
     h1: "The poker room",
     lead: "A separate room with tables in deep green baize, dealers who know the rules by heart, and a weekly tournament programme.",
-    illustration: { id: "cardTable", label: "Drawing of a poker table seen from above, with no cards dealt" },
+    illustration: { id: "cardTable", label: "The poker table seen from above: green baize, face-down cards at each seat and the dealer's place" },
     programme: {
       heading: "The weekly programme",
+      column: "Tournaments and cash tables",
       intro: "The programme is the same every week. Tournament entry is at the poker room's front desk on the evening itself; the site takes no sign-ups.",
       day: "Day",
       time: "Time",

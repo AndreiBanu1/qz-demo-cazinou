@@ -4,7 +4,7 @@ export const evenimente: Bilingual<PageContent & { formatsHeading: string; priva
   ro: {
     h1: "Evenimente",
     lead: "Seri cu muzică live, cine cu degustare și saloane pentru evenimentele tale. Programul se repetă în fiecare lună, așa că știi mereu ce urmează.",
-    illustration: { id: "stage", label: "Desen al unei scene mici cu un microfon și o lampă, în linii aurii" },
+    illustration: { id: "stage", label: "Scena mică: cortine, două reflectoare, un microfon și mese rotunde în față" },
     formatsHeading: "Ce se întâmplă în fiecare lună",
     privateCta: "Cere o ofertă pentru un eveniment privat",
     sections: [
@@ -28,7 +28,7 @@ export const evenimente: Bilingual<PageContent & { formatsHeading: string; priva
   en: {
     h1: "Events",
     lead: "Evenings of live music, tasting dinners and rooms for your own events. The programme repeats every month, so you always know what comes next.",
-    illustration: { id: "stage", label: "Drawing of a small stage with a microphone and a lamp, in gold lines" },
+    illustration: { id: "stage", label: "The small stage: curtains, two spotlights, a microphone and round tables in front" },
     formatsHeading: "What happens every month",
     privateCta: "Ask about a private event",
     sections: [
