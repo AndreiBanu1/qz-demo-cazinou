@@ -126,3 +126,9 @@ The user found the inner pages plain next to the home page and approved three ch
    - **Table games:** the three games as a trio with their own drawings
    - **Events:** each monthly format with its own vignette (trumpet, glass and plate, guitar, record)
    - **Venue:** a "how the salon is laid out" section beside the cross-section
+
+## Revision, 2026-11-26: a more detailed venue scene
+
+The user asked for more detail in the venue cross-section. It now shows what the page's "how the salon is laid out" section describes: the stairs and the lift joining the floors; upstairs the poker room (a table with cards dealt face down and chairs), the table games (a roulette table with no ball and no numbers) and the slot room (cabinets with blank screens and stools), under chandeliers and arched windows; downstairs the restaurant (laid tables, candles, pendant lamps), the bar (a mirrored back bar with bottles, the counter, stools) and the stage (curtains, two spotlights, a grand piano, a microphone). Outside there are a mansard roof with dormers and an amethyst crest, a cornice, quoins, a stone plinth, street lamps, still stars and a crescent moon.
+
+The movement stays a single one: the lights come on once, in waves from the street up to the roof, and stay on.

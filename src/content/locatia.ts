@@ -4,7 +4,7 @@ export const locatia: Bilingual<PageContent> = {
   ro: {
     h1: "Locația",
     lead: "Salon Ametist este o clădire veche, renovată, într-un oraș din România: un restaurant la parter, un bar cu scenă și sălile de joc la etaj.",
-    illustration: { id: "bar", label: "Clădirea în secțiune: sălile de joc la etaj, restaurantul, barul și scena la parter" },
+    illustration: { id: "bar", label: "Clădirea în secțiune: sălile de joc la etaj, restaurantul, barul și scena la parter, legate de scări și un lift" },
     sections: [
       {
         id: "etaje",
@@ -62,7 +62,7 @@ export const locatia: Bilingual<PageContent> = {
   en: {
     h1: "The venue",
     lead: "Salon Ametist is an old, restored building in a city in Romania: a restaurant on the ground floor, a bar with a stage, and the gaming rooms upstairs.",
-    illustration: { id: "bar", label: "The building in cross-section: the gaming rooms upstairs, the restaurant, bar and stage on the ground floor" },
+    illustration: { id: "bar", label: "The building in cross-section: the gaming rooms upstairs, the restaurant, bar and stage on the ground floor, joined by stairs and a lift" },
     sections: [
       {
         id: "etaje",

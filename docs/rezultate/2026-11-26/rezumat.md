@@ -10,14 +10,14 @@ Where: `npm run dev:full` on this Mac (`wrangler pages dev` on http://localhost:
 | `/` | desktop | 100 | 100 | 100 | 66 | 211 ms | 0.002 |
 | `/poker` | mobile | 100 | 100 | 100 | 66 | 757 ms | 0.005 |
 | `/poker` | desktop | 100 | 100 | 100 | 66 | 207 ms | 0.003 |
-| `/en/venue` | mobile | 100 | 100 | 100 | 66 | 757 ms | 0.009 |
+| `/en/venue` | mobile | 100 | 100 | 100 | 66 | 759 ms | 0.009 |
 | `/en/venue` | desktop | 100 | 100 | 100 | 66 | 208 ms | 0.001 |
 | `/contact` | mobile | 100 | 100 | 100 | 66 | 759 ms | 0.005 |
 | `/contact` | desktop | 100 | 100 | 100 | 66 | 210 ms | 0.035 |
 
 - **SEO:** the only failing audit is `is-crawlable` (deliberate `noindex`).
 - **CLS:** the small shift comes from the two web fonts (Fraunces and Figtree) swapping in (`font-display: swap`), and it stays well under the 0.1 threshold.
-- **When:** the runs above are from after the font change (Bodoni Moda and Jost → Fraunces and Figtree) and the page scenes (`/poker` and `/en/venue` carry them). The JSON files were overwritten by them.
+- **When:** the runs above are from after the font change (Bodoni Moda and Jost → Fraunces and Figtree) and the page scenes (`/poker` and `/en/venue` carry them). The JSON files were overwritten by them. The two `/en/venue` runs were repeated after the more detailed venue scene.
 - **Raw reports:** `lighthouse/*.json`. Local numbers flatter performance; the live run is the one to quote.
 
 ## Tests
